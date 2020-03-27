@@ -1,0 +1,91 @@
+﻿@page
+@model tbkk_AC.Pages.Models.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Model Detail</h2>
+                <div class=" col-md-12 col-lg-12 ">
+                    <div class="card " style="margin-top:1%">
+                        <div class="card-header" style="font-weight:bold;color:darkblue;">
+                            Detail
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-user-information" style="margin-top:-21%;margin-bottom:-6%">
+                                <tbody>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Model.ModelID) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Model.ModelID)</td>
+                                                </div>
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Model.ModelName) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Model.ModelName)</td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Model.Brand) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Model.Brand.BrandName)</td>
+
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Model.Status) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Model.Status)</td>
+
+                                                </div>
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Model.Note) :</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Model.Note)</textarea>
+                                                        </div>
+                                                    </td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </div>
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:2%">
+            <a asp-page="./Edit" asp-route-id="@Model.Model.ModelID">Edit</a> |
+            <a asp-page="./Index" asp-route-id="@Model.Model.ModelID">Back to List</a>
+        </div>
+    </div>
+

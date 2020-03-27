@@ -1,0 +1,131 @@
+﻿@page
+@model tbkk_AC.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Managment</li>
+                <li class="breadcrumb-item active">Employee</li>
+            </ol>
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="dataTable_length">
+                        <i class="fas fa-table">Employee</i>
+                        <div style="float: right">
+                            <a asp-page="Create">
+                                <button type="button" class="btn btn-primary brands-modal">
+
+                                    Create
+                                </button>
+                            </a>
+                            <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        </div>
+                    </div>
+
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                        <div class="card card-body" style="margin-left:70%">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
+                                    <label class="custom-file-label" for="fUpload" id="ff"></label>
+                                </div>
+                                <div class="input-group-append">
+                                    <input class="btn btn-outline-info" value="Upload" type="submit" asp-page-handler="Import" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size:small">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].FirstName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].LastName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].Gender)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].Status)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].Company)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].Department)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].EmployeeType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Employee[0].Position)
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Employee)
+                                {
+                                    if (item.Status.Equals("Using"))
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FirstName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LastName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Gender)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EmployeeType.EmployeeTypeName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Position.PositionName)
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Edit" asp-route-id="@item.EmployeeID">Edit</a> |
+                                                <a asp-page="./Details" asp-route-id="@item.EmployeeID">Detail</a>
+                                                <a asp-page="./Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function run() {
+            document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+        }
+    </script>

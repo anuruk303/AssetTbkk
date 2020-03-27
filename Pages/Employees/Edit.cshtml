@@ -1,0 +1,236 @@
+﻿@page
+@model tbkk_AC.Pages.Employees.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Managment</li>
+                <li class="breadcrumb-item active">Employee</li>
+            </ol>
+
+            <div class="card " style="margin-top:1%">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
+                    Create
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Employee.EmployeeID" />
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.FirstName" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.FirstName" class="form-control" placeholder="FirstName" />
+                                    <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Gender" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Gender" class="form-control" placeholder="Gender" />
+                                    <span asp-validation-for="Employee.Gender" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.LastName" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.LastName" class="form-control" placeholder="LastName" />
+                                    <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Date" class="col-sm-0 col-form-label">AttachFiles</label>
+                                    <input asp-for="Employee.Date" class="form-control" placeholder="AttachFiles" />
+                                    <span asp-validation-for="Employee.Date" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card " style="margin-top:1%">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
+                    Model
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Location_LocationID" class="col-sm-0 col-form-label">Location</label>
+                                    <select asp-for="Employee.Location_LocationID" class="form-control">
+                                        <option selected value=@null>Plase select</option>
+                                        @foreach (var item in Model.Location)
+                                        {
+                                            if (item.Status.Equals("Using"))
+                                            {
+                                                <option value=@item.LocationID>@Html.DisplayFor(modelItem => item.LocationName)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Employee.Location_LocationID" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
+                                    <select asp-for="Employee.Company_CompanyID" class="form-control">
+                                        <option selected value=@null>Plase select</option>
+                                        @foreach (var item in Model.Company)
+                                        {
+                                            if (item.Status.Equals("Using"))
+                                            {
+                                                <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Employee.Company_CompanyID" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Position_PositionID" class="col-sm-0 col-form-label">Position</label>
+                                    <select asp-for="Employee.Position_PositionID" class="form-control">
+                                        <option selected value=@null>Plase select</option>
+                                        @foreach (var item in Model.Position)
+                                        {
+                                            if (item.Status.Equals("Using"))
+                                            {
+                                                <option value=@item.PositionID>@Html.DisplayFor(modelItem => item.PositionName)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Employee.Position_PositionID" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.EmployeeType_EmployeeTypeID" class="col-sm-0 col-form-label">EmployeeType</label>
+                                    <select asp-for="Employee.EmployeeType_EmployeeTypeID" class="form-control">
+                                        <option selected value=@null>Plase select</option>
+                                        @foreach (var item in Model.EmployeeType)
+                                        {
+                                            if (item.Status.Equals("Using"))
+                                            {
+                                                <option value=@item.EmployeeTypeID>@Html.DisplayFor(modelItem => item.EmployeeTypeName)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Employee.EmployeeType_EmployeeTypeID" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
+                                    <select asp-for="Employee.Department_DepartmentID" class="form-control">
+                                        <option selected value=@null>Plase select</option>
+                                        @foreach (var item in Model.Department)
+                                        {
+                                            if (item.Status.Equals("Using"))
+                                            {
+                                                <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Employee.Department_DepartmentID" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card " style="margin-top:1%">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
+                    Address
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Email" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Email" class="form-control" placeholder="Email" />
+                                    <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Call" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Call" class="form-control" placeholder="Call" />
+                                    <span asp-validation-for="Employee.Call" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Line" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Line" class="form-control" placeholder="Line" />
+                                    <span asp-validation-for="Employee.Line" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Addr" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Addr" class="form-control" placeholder="Addr" />
+                                    <span asp-validation-for="Employee.Addr" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card " style="margin-top:1%">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
+                    More
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label asp-for="Employee.Status" class="col-sm-0 col-form-label"></label>
+                                    <input asp-for="Employee.Status" class="form-control" value="Using" readonly />
+                                    <span asp-validation-for="Employee.Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Employee.Image" class="col-sm-0 col-form-label"></label>
+                                <input asp-for="Employee.Image" class="form-control" placeholder="Image" />
+                                <span asp-validation-for="Employee.Image" class="text-danger"></span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
+                <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                <input style="margin-left:10px" type="submit" value="Save" class="btn btn-outline-secondary" />
+            </div>
+
+        </div>
+    </div>
