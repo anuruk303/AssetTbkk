@@ -14,7 +14,7 @@
                             Detail
                         </div>
                         <div class="card-body">
-                            <table class="table table-user-information" style="margin-top:-22%">
+                            <table class="table table-user-information" style="margin-top:-15%">
                                 <tbody>
                                     <tr>
                                         <div class="card-body">
@@ -44,22 +44,7 @@
                                             </div>
                                         </div>
                                     </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Employee.Status)</td>
-                                                    <td>@Html.DisplayFor(model => model.Employee.Status)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Employee.Date) :</td>
-                                                    <td> @Html.DisplayFor(model => model.Employee.Date)</td>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
+                                    
                                     <tr>
                                         <div class="card-body">
                                             <div class="row">
@@ -150,7 +135,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <td>Location :</td>
+                                                    <td>Type :</td>
                                                     <td>
                                                         @foreach (var item in Model.EmployeeType)
                                                         {
@@ -162,15 +147,9 @@
                                                     </td>
                                                 </div>
                                                 <div class="col">
-                                                    <td>Department :</td>
+                                                    <td></td>
                                                     <td>
-                                                        @foreach (var item in Model.Department)
-                                                        {
-                                                            if (Model.Employee.Department_DepartmentID == item.DepartmentID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.DepartmentName)
-                                                            }
-                                                        }
+                                                       
                                                     </td>
                                                 </div>
                                             </div>

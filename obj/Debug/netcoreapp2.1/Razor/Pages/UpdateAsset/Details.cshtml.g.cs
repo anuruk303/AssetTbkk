@@ -768,7 +768,7 @@ using tbkk_AC;
             WriteLiteral("\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-3\">\n            <h2></h2>\n            <div class=\"col-md-3 col-lg-3 \" align=\"center\">\n                ");
             EndContext();
             BeginContext(20390, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3be3a14fb34645e49ccbaa81985fc7b8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "aaa5d4c01a524927b902693ab734738b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -795,7 +795,7 @@ AddHtmlAttributeValue("", 20410, Html.DisplayFor(model => model.Update_Asset.Upd
             WriteLiteral("\n\n            </div>\n\n        </div>\n    </div>\n\n    <div>\n        ");
             EndContext();
             BeginContext(20567, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "838cfca522e74a0e8e21ad9063806d45", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7dccc0cb8024eb382e9e9d9994f4e43", async() => {
                 BeginContext(20648, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

@@ -7,22 +7,16 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="index.html">Asset Control</a>
-                </li>
-                <li class="breadcrumb-item active">Managment</li>
-                <li class="breadcrumb-item active">License</li>
-            </ol>
-            <!-- DataTables Example -->
+
 
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="dataTable_length">
                         <i class="fas fa-table">License</i>
                         <div style="float: right">
-                            <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+                            <a asp-page="Create">
+                            <button type="button" class="btn btn-primary">Create</button>
+                            </a>
 
                             <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                         </div>
@@ -135,9 +129,9 @@
                 </div>
             </div>
         </div>
-        <script>
-
+    </div>
+<script> 
         function run() {
             document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
         }
-        </script>
+</script>

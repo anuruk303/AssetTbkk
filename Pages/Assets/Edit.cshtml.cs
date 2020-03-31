@@ -22,6 +22,7 @@ namespace tbkk_AC.Pages.Assets
         [BindProperty]
         public Asset Asset { get; set; }
         public IList<Location> Location { get; set; }
+        public IList<Brand> Brand { get; set; }
         public IList<Position> Position { get; set; }
         public IList<Model> Model { get; set; }
         public IList<Supplier> Supplier { get; set; }
@@ -31,6 +32,7 @@ namespace tbkk_AC.Pages.Assets
         public IList<Category> Category { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Brand = await _context.Brand.ToListAsync();
             Category = await _context.Category.ToListAsync();
             Update_Asset = await _context.Update_Asset.ToListAsync();
             Supplier = await _context.Supplier.ToListAsync();
@@ -45,7 +47,7 @@ namespace tbkk_AC.Pages.Assets
             }
 
             Asset = await _context.Asset.FirstOrDefaultAsync(m => m.AssetID == id);
-
+            
             if (Asset == null)
             {
                 return NotFound();

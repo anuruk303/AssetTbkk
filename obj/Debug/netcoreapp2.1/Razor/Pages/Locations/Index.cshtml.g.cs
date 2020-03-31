@@ -80,7 +80,7 @@ using tbkk_AC;
                         ");
             EndContext();
             BeginContext(707, 215, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85e1792d6f4f4fb1b620611904795a1c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "964d1a7d9cbc43fd8b2dccba3b63b690", async() => {
                 BeginContext(728, 190, true);
                 WriteLiteral("\n                            <button type=\"button\" class=\"btn btn-primary brands-modal\">\n                                Create\n                            </button>\n                        ");
                 EndContext();
@@ -108,7 +108,7 @@ using tbkk_AC;
             ");
             EndContext();
             BeginContext(1214, 870, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef787d24ff354ad5bd4f5a349602be92", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "259ca742c16740debe01186d39afcb20", async() => {
                 BeginContext(1264, 813, true);
                 WriteLiteral(@"
                 <div class=""collapse multi-collapse"" id=""multiCollapseExample2"" style=""margin-top:1%;margin-left:auto"">
@@ -205,7 +205,7 @@ using tbkk_AC;
             WriteLiteral("\n                                            </td>\n                                            <td width=\"100px\">\n                                                ");
             EndContext();
             BeginContext(3656, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "60be3683723d4d59bd77349629046615", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f54cfff01659483ebbc1625e83658285", async() => {
                 BeginContext(3709, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -240,7 +240,7 @@ using tbkk_AC;
             WriteLiteral(" |\n                                                ");
             EndContext();
             BeginContext(3768, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd0ce73595745ecb70865870b256426", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19465b9291cb4c4f96ea0b05179f2649", async() => {
                 BeginContext(3823, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

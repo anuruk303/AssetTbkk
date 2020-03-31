@@ -32,8 +32,10 @@ namespace tbkk_AC.Pages.Assets
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
         public IList<Category> Category { get; set; }
+        public IList<Brand> Brand { get; set; }
         public async Task<IActionResult> OnGetAsync()
         {
+            Brand = await _context.Brand.ToListAsync();
             Category = await _context.Category.ToListAsync();
             Supplier = await _context.Supplier.ToListAsync();
             Company = await _context.Company.ToListAsync();
@@ -49,16 +51,25 @@ namespace tbkk_AC.Pages.Assets
         private IHostingEnvironment environment;
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Asset.Image = photo.FileName;
-            if (!ModelState.IsValid)
+            try
             {
+                var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
+                var fileStream = new FileStream(file, FileMode.Create);
+                Asset.Image = photo.FileName;
+                if (!ModelState.IsValid)
+                {
+
+                }
+                _context.Asset.Add(Asset);
+                await _context.SaveChangesAsync();
+                await photo.CopyToAsync(fileStream);
+                return RedirectToPage("./Index");
 
             }
-            _context.Asset.Add(Asset);
-            await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
+            catch (InvalidCastException e)
+            {
+            }
+
             return RedirectToPage("./Index");
         }
     }

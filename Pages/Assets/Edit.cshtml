@@ -8,11 +8,7 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Asset Control</li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">Asset</li>
-        </ol>
+        
         <form method="post">
             <div class="card " style="margin-top:1%">
                 <div class="card-header" style="font-weight:bold;color:darkblue;">
@@ -26,28 +22,28 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.AssetName" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.AssetName" class="form-control" placeholder="AssetName" />
+                                    <input asp-for="Asset.AssetName" class="form-control form-control-sm" placeholder="AssetName" />
                                     <span asp-validation-for="Asset.AssetName" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.MACAddr" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.MACAddr" class="form-control" placeholder="MACAddr" />
+                                    <input asp-for="Asset.MACAddr" class="form-control form-control-sm" placeholder="MACAddr" />
                                     <span asp-validation-for="Asset.MACAddr" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Price" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.Price" class="form-control" placeholder="Price" />
+                                    <input asp-for="Asset.Price" class="form-control form-control-sm" placeholder="Price" />
                                     <span asp-validation-for="Asset.Price" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Category" class="col-sm-0 col-form-label"></label>
-                                    <select asp-for="Asset.Category" class="form-control">
+                                    <select asp-for="Asset.Category" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Category)
                                         {
@@ -64,21 +60,21 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.SerailNumber" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.SerailNumber" class="form-control" placeholder="SerailNumber" />
+                                    <input asp-for="Asset.SerailNumber" class="form-control form-control-sm" placeholder="SerailNumber" />
                                     <span asp-validation-for="Asset.SerailNumber" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.PONumber" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.PONumber" class="form-control" placeholder="PONumber" />
+                                    <input asp-for="Asset.PONumber" class="form-control form-control-sm" placeholder="PONumber" />
                                     <span asp-validation-for="Asset.PONumber" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Warranty" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.Warranty" class="form-control" placeholder="Warranty" />
+                                    <input asp-for="Asset.Warranty" class="form-control form-control-sm" placeholder="Warranty" />
                                     <span asp-validation-for="Asset.Warranty" class="text-danger"></span>
                                 </div>
                             </div>
@@ -99,7 +95,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Supplier_SupplierID" class="col-sm-0 col-form-label">Supplier</label>
-                                    <select asp-for="Asset.Supplier_SupplierID" class="form-control">
+                                    <select asp-for="Asset.Supplier_SupplierID" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Supplier)
                                         {
@@ -116,7 +112,7 @@
 
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
-                                    <select asp-for="Asset.Company_CompanyID" class="form-control">
+                                    <select asp-for="Asset.Company_CompanyID" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Company)
                                         {
@@ -133,7 +129,7 @@
 
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Location_LocationID" class="col-sm-0 col-form-label">Company</label>
-                                    <select asp-for="Asset.Location_LocationID" class="form-control">
+                                    <select asp-for="Asset.Location_LocationID" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Location)
                                         {
@@ -153,23 +149,29 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Model_ModelID" class="col-sm-0 col-form-label">Model</label>
-                                    <select asp-for="Asset.Model_ModelID" class="form-control">
+                                    <select asp-for="Asset.Model_ModelID" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Model)
                                         {
                                             if (item.Status.Equals("Using"))
                                             {
-                                                <option value=@item.ModelID>@Html.DisplayFor(modelItem => item.ModelName)</option>
+                                                @foreach (var item1 in Model.Brand)
+                                                {
+                                                    if (item.Brand_BrandID == item1.BrandID)
+                                                    {
+                                                    <option value=@item.ModelID>@Html.DisplayFor(modelItem => item.ModelName)<text>/</text>@Html.DisplayFor(modelItem => item1.BrandName)</option>
+                                                    }
+                                                }
                                             }
                                         }
-                                    </select>
+                                        </select>
                                     <span asp-validation-for="Asset.Model_ModelID" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
-                                    <select asp-for="Asset.Department_DepartmentID" class="form-control">
+                                    <select asp-for="Asset.Department_DepartmentID" class="form-control form-control-sm">
                                         <option selected value=@null>Plase select</option>
                                         @foreach (var item in Model.Department)
                                         {
@@ -184,10 +186,7 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
             <div class="card " style="margin-top:1%">
                 <div class="card-header" style="font-weight:bold;color:darkblue;">
@@ -199,15 +198,15 @@
                         <div class="col">
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <label asp-for="Asset.InstallDate" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.InstallDate" class="form-control" />
+                                    <label asp-for="Asset.InstallDate" class="col-sm-0 col-form-label" ></label>
+                                    <input asp-for="Asset.InstallDate" class="form-control form-control-sm"/>
                                     <span asp-validation-for="Asset.InstallDate" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.PurchaseDate" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.PurchaseDate" type="date" class="form-control" />
+                                    <input asp-for="Asset.PurchaseDate" class="form-control form-control-sm" />
                                     <span asp-validation-for="Asset.PurchaseDate" class="text-danger"></span>
                                 </div>
                             </div>
@@ -216,8 +215,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.ExpireDate" class="col-sm-0 col-form-label"></label>
-
-                                    <input asp-for="Asset.ExpireDate"  type="date" class="form-control"/>
+                                    <input asp-for="Asset.ExpireDate" class="form-control form-control-sm"/>
                                     <span asp-validation-for="Asset.ExpireDate" class="text-danger"></span>
                                 </div>
                             </div>
@@ -244,14 +242,14 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Status" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.Status" class="form-control" value="Using" readonly />
+                                    <input asp-for="Asset.Status" class="form-control form-control-sm" value="Using" readonly />
                                     <span asp-validation-for="Asset.Status" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Image" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Asset.Image" class="form-control" />
+                                    <input asp-for="Asset.Image" class="form-control form-control-sm" />
                                     <span asp-validation-for="Asset.Image" class="text-danger"></span>
                                 </div>
                             </div>

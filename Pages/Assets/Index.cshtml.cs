@@ -24,7 +24,8 @@ namespace tbkk_AC.Pages.Assets
         }
         
         public IList<Asset> Asset { get; set; }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         [BindProperty(SupportsGet = true)] 
         public string PONumber { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -92,24 +93,22 @@ namespace tbkk_AC.Pages.Assets
             {
                 assets = assets.Where(s => s.Status.Contains(Status));
             }
+            
             Asset = await assets.ToListAsync();
 
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync(int? id)
+        public async Task<IActionResult> OnPostDeleteAsync()
         {
-            if (id == null)
+            if (Deletid == 0)
             {
                 return NotFound();
             }
 
-            AssetDelete = await _context.Asset.FindAsync(id);
+            AssetDelete = await _context.Asset.FindAsync(Deletid);
             AssetDelete.Status = "Unused";
-            if (Asset != null)
-            {
-                _context.Attach(AssetDelete).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
+            _context.Attach(AssetDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

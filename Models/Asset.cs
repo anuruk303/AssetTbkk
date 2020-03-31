@@ -34,7 +34,7 @@ namespace tbkk_AC.Models
     
         [Display(Name = "Purchase Date")]
         [DataType(DataType.Date)]
-        
+        [DisplayFormat(DataFormatString = "{0:dd/MMM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime PurchaseDate { get; set; }
 
     

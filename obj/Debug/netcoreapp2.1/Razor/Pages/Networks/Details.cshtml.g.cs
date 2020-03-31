@@ -242,7 +242,7 @@ using tbkk_AC;
             WriteLiteral("                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div style=\"margin-top:2%\">\n        ");
             EndContext();
             BeginContext(4769, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35939b1c13674b6cb18b0ae3ae79d2f5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01b62465538843b0bd0c32d042196f6e", async() => {
                 BeginContext(4830, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -277,7 +277,7 @@ using tbkk_AC;
             WriteLiteral(" |\n        ");
             EndContext();
             BeginContext(4849, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1cacac782d8745d4bc3e6649bac493af", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fbb9224f7654db79525cc8ab77399bd", async() => {
                 BeginContext(4871, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
@@ -396,7 +396,7 @@ using tbkk_AC;
             WriteLiteral("\n                                        </td>\n                                        <td width=\"100px\">\n                                            ");
             EndContext();
             BeginContext(7853, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8f26f4b904c4b7fa2c287e168e9d9e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8250b3cd2a5b40f79ce6cf3f8e7d614d", async() => {
                 BeginContext(7924, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -431,7 +431,7 @@ using tbkk_AC;
             WriteLiteral("\n                                        </td>\n                                        <td width=\"100px\">\n                                            ");
             EndContext();
             BeginContext(8085, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7265d81c8322452e886b1de40a9786ec", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27a4b7a593ce4e17aeebe42029c6f5b8", async() => {
                 BeginContext(8159, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -466,7 +466,7 @@ using tbkk_AC;
             WriteLiteral("\n                                        </td>\n                                        <td width=\"100px\">\n                                            ");
             EndContext();
             BeginContext(8317, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be111935aa3842e2bf843c3414b9b525", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b9137148aec48e1ab03f205864342ea", async() => {
                 BeginContext(8393, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -578,7 +578,7 @@ using tbkk_AC;
             WriteLiteral("\n                                        </td>\n                                        <td width=\"100px\">\n                                            ");
             EndContext();
             BeginContext(10513, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e4454845b9a4a368a0969ae4de28303", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d761fce5a2b48dca14d5f0adc14723a", async() => {
                 BeginContext(10590, 7, true);
                 WriteLiteral("Details");
                 EndContext();

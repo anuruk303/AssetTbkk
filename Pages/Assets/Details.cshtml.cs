@@ -19,7 +19,7 @@ namespace tbkk_AC.Pages.Assets
         }
         public IList<Location> Location { get; set; }
         public IList<Position> Position { get; set; }
-        public IList<Model> Model { get; set; }
+        public IList<Model> Models { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
@@ -34,8 +34,10 @@ namespace tbkk_AC.Pages.Assets
         public IList<Asset> Asset1 { get; set; }
         public IList<Update_Asset> Update_Asset { get; set; }
         public IList<Category> Category { get; set; }
+        public IList<Brand> Brand { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Brand = await _context.Brand.ToListAsync();
             Category = await _context.Category.ToListAsync();
             Update_Asset = await _context.Update_Asset.ToListAsync();
             License = await _context.License.ToListAsync();
@@ -49,7 +51,7 @@ namespace tbkk_AC.Pages.Assets
             Supplier = await _context.Supplier.ToListAsync();
             Company = await _context.Company.ToListAsync();
             Department = await _context.Department.ToListAsync();
-            Model = await _context.Model.ToListAsync();
+            Models = await _context.Model.ToListAsync();
             Location = await _context.Location.ToListAsync();
             Position = await _context.Position.ToListAsync();
 
