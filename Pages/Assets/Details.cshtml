@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-md-9 col-lg-9">
             <h2>Asset Detail</h2>
+
             <div class=" col-md-12 col-lg-12 ">
                 <div class="card " style="margin-top:1%">
                     <div class="card-header" style="font-weight:bold;color:darkblue;">
@@ -24,8 +25,8 @@
                                                 <td>: @Html.DisplayFor(model => model.Asset.AssetName)</td>
                                             </div>
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.SerailNumber) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.SerailNumber)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.SerailNumber)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.SerailNumber)</td>
                                             </div>
                                         </div>
                                     </div>
@@ -34,12 +35,12 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.MACAddr) :</td>
-                                                <td> @Html.DisplayFor(model => model.Asset.MACAddr)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.MACAddr)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.MACAddr)</td>
                                             </div>
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.PONumber)</td>
 
                                             </div>
                                         </div>
@@ -49,12 +50,13 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.Status) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.Status)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Status)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.Status)</td>
                                             </div>
                                             <div class="col">
-                                                <td>Model :</td>
+                                                <td>Model</td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Models)
                                                     {
                                                         if (Model.Asset.Model_ModelID == item.ModelID)
@@ -78,12 +80,12 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.PONumber)</td>
                                             </div>
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.Price) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.Price)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Price)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.Price)</td>
                                             </div>
                                         </div>
                                     </div>
@@ -92,12 +94,13 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.Warranty) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.Warranty)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Warranty)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.Warranty)</td>
                                             </div>
                                             <div class="col">
-                                                <td>Supplier :</td>
+                                                <td>Category </td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Category)
                                                     {
                                                         if (Model.Asset.Category == item.CategoryID)
@@ -141,8 +144,9 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>Supplier :</td>
+                                                <td>Supplier</td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Supplier)
                                                     {
                                                         if (Model.Asset.Supplier_SupplierID == item.SupplierID)
@@ -153,8 +157,9 @@
                                                 </td>
                                             </div>
                                             <div class="col">
-                                                <td>Company :</td>
+                                                <td>Company </td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Company)
                                                     {
                                                         if (Model.Asset.Company_CompanyID == item.CompanyID)
@@ -171,8 +176,9 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>Location :</td>
+                                                <td>Location </td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Location)
                                                     {
                                                         if (Model.Asset.Location_LocationID == item.LocationID)
@@ -183,8 +189,9 @@
                                                 </td>
                                             </div>
                                             <div class="col">
-                                                <td>Department :</td>
+                                                <td>Department </td>
                                                 <td>
+                                                    :
                                                     @foreach (var item in Model.Department)
                                                     {
                                                         if (Model.Asset.Department_DepartmentID == item.DepartmentID)
@@ -228,13 +235,13 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.InstallDate) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.InstallDate)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.InstallDate) </td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.InstallDate)</td>
 
                                             </div>
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.PurchaseDate) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.PurchaseDate)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PurchaseDate)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.PurchaseDate)</td>
 
                                             </div>
                                         </div>
@@ -244,8 +251,8 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.ExpireDate) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.ExpireDate)</td>
+                                                <td>@Html.DisplayNameFor(model => model.Asset.ExpireDate) </td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.ExpireDate)</td>
 
                                             </div>
                                             <div class="col">
@@ -285,13 +292,9 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Asset.Status) :</td>
-                                                <td>@Html.DisplayFor(model => model.Asset.Status)</td>
-                                            </div>
-                                            <div class="col">
                                                 <td>@Html.DisplayNameFor(model => model.Asset.Note) :</td>
                                                 <td>
-                                                    <div class="form-group">
+                                                    <div class="form-group " style="margin-left:-12%">
                                                         <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Asset.Note)</textarea>
                                                     </div>
                                                 </td>
@@ -333,11 +336,7 @@
     </div>
 
     <div style="margin-top:2%;margin-left:1.5%">
-        <a asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">
-            <button type="button" class="btn btn-outline-warning">
-                Edit
-            </button>
-        </a>
+
 
 
         <a asp-page="./Index">
@@ -345,318 +344,302 @@
                 Back
             </button>
         </a>
+        <a asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">
+            <button type="button" class="btn btn-outline-warning">
+                Edit
+            </button>
+        </a>
     </div>
-    <div class="btn-group" style="margin-left:90%;">
-        <button class="btn btn-outline-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Join
-        </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" asp-page="../JoinAsset_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Asset</a>
-            <a class="dropdown-item" asp-page="../JoinLicense_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join License</a>
-            <a class="dropdown-item" asp-page="../JoinAsset_Emp/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Employee</a>
-            <a class="dropdown-item" asp-page="../JoinNetwork_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Network</a>
-        </div>
-    </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="Joinasset-tab" data-toggle="tab" href="#Joinasset" role="tab" aria-controls="Joinasset" aria-selected="true">Join Asset</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="Joinemp-tab" data-toggle="tab" href="#Joinemp" role="tab" aria-controls="Joinemp" aria-selected="false">Join Employee</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="Joinelicen-tab" data-toggle="tab" href="#Joinelicen" role="tab" aria-controls="Joinelicen" aria-selected="false">Join License</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="Joinenet-tab" data-toggle="tab" href="#Joinenet" role="tab" aria-controls="Joinenet" aria-selected="false">Join Network</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="Joinasset" role="tabpanel" aria-labelledby="Joinasset-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Asset
-                                </th>
-                                <th>
-                                    Asset Join
-                                </th>
-
-                                <th>
-                                    Status
-                                </th>
-
-
-
-                                <th>Actions</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Join_Asset_Asset)
-                            {
-                                if (Model.Asset.AssetID == item.Asset_AssetID || Model.Asset.AssetID == item.AssetSon)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Asset.AssetName)
-                                        </td>
-                                        <td>
-
-                                            @foreach (var item1 in Model.Asset1)
-                                            {
-                                                if (item.AssetSon == item1.AssetID && item.AssetSon != Model.Asset.AssetID)
-                                                {
-                                                    <a asp-page="../Assets/Details" asp-route-id="@item.AssetSon">
-                                                        @Html.DisplayFor(modelItem => item1.AssetName)
-                                                    </a>
-                                                }
-                                                if (item.Asset_AssetID == item1.AssetID && item.AssetSon == Model.Asset.AssetID)
-                                                {
-                                                    <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">
-                                                        @Html.DisplayFor(modelItem => item1.AssetName)
-                                                    </a>
-                                                }
-
-                                            }
-
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-
-                                        <td width="19%">
-                                            <a asp-page="../JoinAsset_Assets/Edit" asp-route-id="@item.JoinAsAsID">
-                                                <button type="button" class="btn btn-outline-warning">
-                                                    Edit
-
-                                                </button>
-                                            </a>
-                                            <a asp-page="../JoinAsset_Assets/Delete" asp-route-id="@item.JoinAsAsID">
-                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.JoinAsAsID)">Delete</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-
-
-                        </tbody>
-                    </table>
+    <div class="card " style="margin-top:2%">
+        <div class="card-header">
+            <i class="fas fa-table" style="margin-top:1%"> Asset</i>
+            <div style="float: right">
+                <div class="btn-group">
+                    <button class="btn btn-outline-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Join
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-page="../JoinAsset_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Asset</a>
+                        <a class="dropdown-item" asp-page="../JoinLicense_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join License</a>
+                        <a class="dropdown-item" asp-page="../JoinAsset_Emp/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Employee</a>
+                        <a class="dropdown-item" asp-page="../JoinNetwork_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Network</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="Joinemp" role="tabpanel" aria-labelledby="Joinemp-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Asset
-                                </th>
-                                <th>
-                                    User
-                                <th>
-                                    Status
-                                </th>
-                                <th>Actions</th>
+        <div class="card-body">
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Join_Asset_Emp)
-                            {
-                                if (Model.Asset.AssetID == item.Asset_AssetID)
-                                {
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="Joinasset-tab" data-toggle="tab" href="#Joinasset" role="tab" aria-controls="Joinasset" aria-selected="true">Join Asset</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Joinemp-tab" data-toggle="tab" href="#Joinemp" role="tab" aria-controls="Joinemp" aria-selected="false">Join Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Joinelicen-tab" data-toggle="tab" href="#Joinelicen" role="tab" aria-controls="Joinelicen" aria-selected="false">Join License</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Joinenet-tab" data-toggle="tab" href="#Joinenet" role="tab" aria-controls="Joinenet" aria-selected="false">Join Network</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Joinasset" role="tabpanel" aria-labelledby="Joinasset-tab">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Asset.AssetName)
-                                        </td>
-                                        <td>
-                                            <a asp-page="../Employees/Details" asp-route-id="@item.Employee_EmployeeID">
-                                                @foreach (var item1 in Model.Employee)
-                                                {
-                                                    if (item.Employee_EmployeeID == item1.EmployeeID)
+                                        <th>
+                                            Asset
+                                        </th>
+                                        <th>
+                                            Asset Join
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+
+
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Join_Asset_Asset)
+                                    {
+                                        if (Model.Asset.AssetID == item.Asset_AssetID || Model.Asset.AssetID == item.AssetSon)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.Asset.AssetName)
+                                                </td>
+                                                <td>
+
+                                                    @foreach (var item1 in Model.Asset1)
                                                     {
-                                                        @Html.DisplayFor(modelItem => item1.FirstName)
+                                                        if (item.AssetSon == item1.AssetID && item.AssetSon != Model.Asset.AssetID)
+                                                        {
+                                                            <a asp-page="../Assets/Details" asp-route-id="@item.AssetSon">
+                                                                @Html.DisplayFor(modelItem => item1.AssetName)
+                                                            </a>
+                                                        }
+                                                        if (item.Asset_AssetID == item1.AssetID && item.AssetSon == Model.Asset.AssetID)
+                                                        {
+                                                            <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">
+                                                                @Html.DisplayFor(modelItem => item1.AssetName)
+                                                            </a>
+                                                        }
+
                                                     }
-                                                }
-                                            </a>
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td width="19%">
-                                            <a asp-page="../JoinAsset_Emp/Edit" asp-route-id="@item.JoinAsEmpID">
-                                                <button type="button" class="btn btn-outline-warning">
-                                                    Edit
 
-                                                </button>
-                                            </a>
-                                            <a asp-page="../JoinAsset_Emp/Delete" asp-route-id="@item.JoinAsEmpID">
-                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+
+                                                <td width="19%">
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteAsModal" onclick="Delete(@item.JoinAsAsID)">Delete</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="Joinelicen" role="tabpanel" aria-labelledby="Joinelicen-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Asset
-                                </th>
-                                <th>
-                                    License
-<th>
-                                    Status
-                                </th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Join_License_Asset)
-                            {
-                                if (Model.Asset.AssetID == item.Asset_AssetID)
-                                {
+                <div class="tab-pane fade" id="Joinemp" role="tabpanel" aria-labelledby="Joinemp-tab">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Asset.AssetName)
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.License)
-                                            {
-                                                if (item.License_LicenseID == item1.LicenseID)
-                                                {
-                                                    <a asp-page="../Licenses/Details" asp-route-id="@item.License_LicenseID">
-                                                        @Html.DisplayFor(modelItem => item1.LicenseName)
+                                        <th>
+                                            Asset
+                                        </th>
+                                        <th>
+                                            User
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Join_Asset_Emp)
+                                    {
+                                        if (Model.Asset.AssetID == item.Asset_AssetID)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.Asset.AssetName)
+                                                </td>
+                                                <td>
+                                                    <a asp-page="../Employees/Details" asp-route-id="@item.Employee_EmployeeID">
+                                                        @foreach (var item1 in Model.Employee)
+                                                        {
+                                                            if (item.Employee_EmployeeID == item1.EmployeeID)
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item1.FirstName)
+                                                            }
+                                                        }
                                                     </a>
-                                                }
-                                            }
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td width="19%">
-                                            <a asp-page="../JoinLicense_Assets/Edit" asp-route-id="@item.JoinLiAsID">
-                                                <button type="button" class="btn btn-outline-warning">
-                                                    Edit
-
-                                                </button>
-                                            </a>
-                                            <a asp-page="../JoinLicense_Assets/Delete" asp-route-id="@item.JoinLiAsID">
-                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.JoinLiAsID)">Delete</button>
-                                            </a>
-                                        </td>
-                                        
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+                                                <td width="19%">
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteEmpModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="Joinenet" role="tabpanel" aria-labelledby="Joinenet-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable3" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    AssetName
-                                </th>
-                                <th>
-                                    User
-                                </th>
-
-                                <th>
-                                    UpdateDate
-                                </th>
-                                <th>
-                                    Details
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Join_Network_Asset)
-                            {
-                                if (Model.Asset.AssetID == item.Asset_AssetID)
-                                {
+                <div class="tab-pane fade" id="Joinelicen" role="tabpanel" aria-labelledby="Joinelicen-tab">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="3">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Asset.AssetName)
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Network)
-                                            {
-                                                if (item.Network_NetworkID == item1.NetworkID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.NetworkName)
-                                                }
-                                            }
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="../Networks/Details" asp-route-id="@item.Network_NetworkID">Details</a>
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="../JoinNetwork_Assets/Edit" asp-route-id="@item.JoinNetAsID">Edit</a>
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="../JoinNetwork_Assets/Delete" asp-route-id="@item.JoinNetAsID">Delete</a>
-                                        </td>
+                                        <th>
+                                            Asset
+                                        </th>
+                                        <th>
+                                            License
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Actions</th>
                                     </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable4" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    AssetName
-                                </th>
-                                <th>
-                                    User
-                                </th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Join_License_Asset)
+                                    {
+                                        if (Model.Asset.AssetID == item.Asset_AssetID)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.Asset.AssetName)
+                                                </td>
+                                                <td>
+                                                    @foreach (var item1 in Model.License)
+                                                    {
+                                                        if (item.License_LicenseID == item1.LicenseID)
+                                                        {
+                                                            <a asp-page="../Licenses/Details" asp-route-id="@item.License_LicenseID">
+                                                                @Html.DisplayFor(modelItem => item1.LicenseName)
+                                                            </a>
+                                                        }
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+                                                <td width="19%">
+                                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteLiModal" onclick="Delete(@item.JoinLiAsID)">Delete</button>
 
-                                <th>
-                                    UpdateDate
-                                </th>
-                                <th>
-                                    Details
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Update_Asset)
-                            {
-                                if (Model.Asset.AssetID == item.Asset_AssetID)
-                                {
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Joinenet" role="tabpanel" aria-labelledby="Joinenet-tab">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable3" width="100%" cellspacing="3">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            AssetName
+                                        </th>
+                                        <th>
+                                            User
+                                        </th>
+
+                                        <th>
+                                            UpdateDate
+                                        </th>
+                                        <th>
+                                            Details
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Join_Network_Asset)
+                                    {
+                                        if (Model.Asset.AssetID == item.Asset_AssetID)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.Asset.AssetName)
+                                                </td>
+                                                <td>
+                                                    @foreach (var item1 in Model.Network)
+                                                    {
+                                                        if (item.Network_NetworkID == item1.NetworkID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item1.NetworkName)
+                                                        }
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Status)
+                                                </td>
+                                                <td width="19%">
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinNetAsID)">Delete</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable4" width="100%" cellspacing="3">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            AssetName
+                                        </th>
+                                        <th>
+                                            User
+                                        </th>
+
+                                        <th>
+                                            UpdateDate
+                                        </th>
+                                        <th>
+                                            Details
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Update_Asset)
+                                    {
+                                        if (Model.Asset.AssetID == item.Asset_AssetID)
+                                        {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(model => model.Asset.AssetName)
@@ -667,16 +650,122 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.UpdateDate)
                                         </td>
+                                        
                                         <td width="100px">
-                                            <a asp-page="../UpdateAsset/Details" asp-route-id="@item.UpdateAssetID">Details</a>
+                                            <a asp-page="../UpdateAsset/Details" asp-route-id="@item.UpdateAssetID">
+                                                <button type="button" class="btn btn-outline-primary">
+                                                    Deatail
+                                                </button>
+                                            </a>
                                         </td>
 
                                     </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- Modal -->
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteAsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="Deletid" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="DeleteAs" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteLiModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="DeletidLi" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="DeleteLi" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteEmpModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="DeletidEmp" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="DeleteEmp" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteNetModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="DeletidNet" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="DeleteNet" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function Delete(id) {
+        document.getElementById("Deletid").value = id
+        document.getElementById("DeletidEmp").value = id
+        document.getElementById("DeletidLi").value = id
+        document.getElementById("DeletidNet").value = id
+    }
+  
+</script>

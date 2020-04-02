@@ -5,133 +5,273 @@
     ViewData["Title"] = "Index";
 }
 
-    <div id="content-wrapper">
-        <div class="container-fluid">
+<div id="content-wrapper">
+    <div class="container-fluid">
 
 
-            <div class="card mb-3">
-                <div class="card-header">
-                    <div class="dataTable_length">
-                        <i class="fas fa-table">License</i>
-                        <div style="float: right">
-                            <a asp-page="Create">
-                            <button type="button" class="btn btn-primary">Create</button>
-                            </a>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">License</i>
+                    <div style="float: right">
+                        <a asp-page="Create">
+                            <button type="button" class="btn btn-outline-info">Create</button>
+                        </a>
 
-                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
-                        </div>
+                        <button  class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Search data</button>
                     </div>
-
                 </div>
-                <form method="post" enctype="multipart/form-data">
-                    <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
-                        <div class="card card-body" style="margin-left:70%">
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
-                                    <label class="custom-file-label" for="fUpload" id="ff"></label>
-                                </div>
-                                <div class="input-group-append">
-                                    <input class="btn btn-outline-info" value="Upload" type="submit" asp-page-handler="Import" />
-                                </div>
+
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                    <div class="card card-body" style="margin-left:70%">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
+                                <label class="custom-file-label" for="fUpload" id="ff"></label>
+                            </div>
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-info" value="Upload" type="submit" asp-page-handler="Import" />
                             </div>
                         </div>
                     </div>
-                </form>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3" style="font-size:small">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.License[0].LicenseName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.License[0].SoftewareName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.License[0].ExpireDate)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.License[0].PONumber)
-                                    </th>
-                                    <th>
-                                        Supplier
-                                    </th>
-                                    <th>
-                                        Department
-                                    </th>
-                                    <th>
-                                        Company
-                                    </th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.License)
-                                {
-                                    if (item.Status.Equals("Using"))
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LicenseName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.SoftewareName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ExpireDate)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.PONumber)
-                                            </td>
-
-                                            <td>
-                                                @foreach (var item1 in Model.Supplier)
+                </div>
+            </form>
+            <form>
+                <div class="collapse multi-collapse" id="multiCollapseExample3" style="">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Softeware Name</label>
+                                        <input class="form-control form-control-sm" placeholder="Softeware Name" id="SoftewareName" asp-for="SoftewareName" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Company</label>
+                                        <select class="form-control form-control-sm" id="Company" asp-for="CompanyID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Company)
+                                            {
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    if (item.Supplier_SupplierID == item1.SupplierID)
-                                                    {
-                                                        @Html.DisplayFor(modelItem => item1.SupplierName)
-                                                    }
+                                                    <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
                                                 }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label"> PO Number</label>
+                                        <input class="form-control form-control-sm" placeholder="PO Number" id="PONumber" asp-for="PONumber" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Status</label>
+                                        <select class="form-control form-control-sm" id="Status" asp-for="Status">
+                                            <option selected value=@null>Plase select</option>
+                                            <option value="Using">Using</option>
+                                            <option value="InStock">InStock</option>
 
-                                            </td>
-                                            <td>
-                                                @foreach (var item1 in Model.Department)
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Supplier</label>
+                                        <select class="form-control form-control-sm" id="Supplier" asp-for="SupplierID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Supplier)
+                                            {
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    if (item.Department_DepartmentID == item1.DepartmentID)
-                                                    {
-                                                        @Html.DisplayFor(modelItem => item1.DepartmentName)
-                                                    }
+                                                    <option value=@item.SupplierID>@Html.DisplayFor(modelItem => item.SupplierName)</option>
                                                 }
-                                            </td>
-                                            <td>
-                                                @foreach (var item1 in Model.Company)
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Department</label>
+                                        <select class="form-control form-control-sm" id="Department" asp-for="DepartmentID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Department)
+                                            {
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    if (item.Company_CompanyID == item1.CompanyID)
-                                                    {
-                                                        @Html.DisplayFor(modelItem => item1.CompanyName)
-                                                    }
+                                                    <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
                                                 }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: right;margin-bottom:1% ">
+                            <button type="submit" class="btn btn-outline-success">
+                                Search
+                            </button>
 
-                                            </td>
-                                            <td width="100px">
-                                                <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
-                                                <a asp-page="./Edit" asp-route-id="@item.LicenseID">Edit</a> |
-                                                <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
+                            <button class="btn btn-outline-warning" type="button" onclick="clear1()">Clear</button>
+                        </div>
                     </div>
+                </div>
+            </form>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3" style="font-size:small">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.License[0].LicenseName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.License[0].SoftewareName)
+                                <th>
+                                    PONumber
+                                </th>
+                                <th>
+                                    Supplier
+                                </th>
+                                <th>
+                                    Department
+                                </th>
+                                <th>
+                                    Company
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.License)
+                            {
+                                if (!item.Status.Equals("Unused"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LicenseName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoftewareName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PONumber)
+                                        </td>
+
+                                        <td>
+                                            @foreach (var item1 in Model.Supplier)
+                                            {
+                                                if (item.Supplier_SupplierID == item1.SupplierID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                }
+                                            }
+
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Department)
+                                            {
+                                                if (item.Department_DepartmentID == item1.DepartmentID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Company)
+                                            {
+                                                if (item.Company_CompanyID == item1.CompanyID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                }
+                                            }
+
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="19%">
+                                            <a asp-page="./Details" asp-route-id="@item.LicenseID">
+                                                <button type="button" class="btn btn-outline-primary">
+                                                    Deatail
+                                                </button>
+                                            </a>
+                                            <a asp-page="./Edit" asp-route-id="@item.LicenseID">
+                                                <button type="button" class="btn btn-outline-warning">
+                                                    Edit
+
+                                                </button>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.LicenseID)">Delete</button>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-<script> 
-        function run() {
-            document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
-        }
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="Deletid" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    function Delete(id) {
+        document.getElementById("Deletid").value = id
+    }
+    function run1() {
+        document.getElementById("pho2").value = document.getElementById("pho1").value
+    }
+    function run() {
+        document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+    } function clear1() {
+
+        document.getElementById("Supplier").selectedIndex = "0";
+        document.getElementById("PONumber").value = "";
+        document.getElementById("SoftewareName").value = "";
+        document.getElementById("Company").selectedIndex = "0";
+        document.getElementById("Status").selectedIndex = "0";
+        document.getElementById("Department").selectedIndex = "0";
+    }
 </script>

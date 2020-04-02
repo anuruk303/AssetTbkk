@@ -17,6 +17,18 @@ namespace tbkk_AC.Pages.Assets
         {
             _context = context;
         }
+        [BindProperty(SupportsGet = true)]
+        public int Deatailid { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int DeletidEmp { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int DeletidLi { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int DeletidNet { get; set; }
+
+
         public IList<Location> Location { get; set; }
         public IList<Position> Position { get; set; }
         public IList<Model> Models { get; set; }
@@ -26,6 +38,10 @@ namespace tbkk_AC.Pages.Assets
         public Asset Asset { get; set; }
         public IList<Join_Asset_Emp> Join_Asset_Emp { get; set; }
         public IList<Join_Asset_Asset> Join_Asset_Asset { get; set; }
+        public Join_Asset_Asset Join_Asset_AssetDelete { get; set; }
+        public Join_Asset_Emp Join_Asset_EmpDelete { get; set; }
+        public Join_License_Asset Join_License_AssetDelete { get; set; }
+        public Join_Network_Asset Join_Network_AssetDelete { get; set; }
         public IList<Join_License_Asset> Join_License_Asset { get; set; }
         public IList<Join_Network_Asset> Join_Network_Asset { get; set; }
         public IList<License> License { get; set; }
@@ -35,6 +51,74 @@ namespace tbkk_AC.Pages.Assets
         public IList<Update_Asset> Update_Asset { get; set; }
         public IList<Category> Category { get; set; }
         public IList<Brand> Brand { get; set; }
+        public async Task<IActionResult> OnPostDeleteAsAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            Join_Asset_AssetDelete = await _context.Join_Asset_Asset.FindAsync(Deletid);
+            Join_Asset_AssetDelete.Status = "Unjoin";
+
+            _context.Attach(Join_Asset_AssetDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            var AssetUpdate = await _context.Asset.FindAsync(Join_Asset_AssetDelete.AssetSon);
+            AssetUpdate.Status = "InStock";
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
+        public async Task<IActionResult> OnPostDeleteLiAsync()
+        {
+            if (DeletidLi == 0)
+            {
+                return NotFound();
+            }
+
+            Join_License_AssetDelete = await _context.Join_License_Asset.FindAsync(DeletidLi);
+            Join_License_AssetDelete.Status = "Unjoin";
+
+            _context.Attach(Join_Asset_AssetDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            var LicenseUpdate = await _context.License.FindAsync(Join_License_AssetDelete.License_LicenseID);
+            LicenseUpdate.Status = "InStock";
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
+        public async Task<IActionResult> OnPostDeleteEmpAsync()
+        {
+            if (DeletidEmp == 0)
+            {
+                return NotFound();
+            }
+
+            Join_Asset_EmpDelete = await _context.Join_Asset_Emp.FindAsync(DeletidEmp);
+            Join_Asset_EmpDelete.Status = "Unjoin";
+
+            _context.Attach(Join_Asset_EmpDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            var AssetUpdate = await _context.Asset.FindAsync(Join_Asset_EmpDelete.Asset_AssetID);
+            AssetUpdate.Status = "InStock";
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
+        }
+        public async Task<IActionResult> OnPostDeleteNetAsync()
+        {
+            if (DeletidNet == 0)
+            {
+                return NotFound();
+            }
+
+            Join_Network_AssetDelete = await _context.Join_Network_Asset.FindAsync(DeletidNet);
+            Join_Network_AssetDelete.Status = "Unjoin";
+
+            _context.Attach(Join_Network_AssetDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            
+            return RedirectToPage("./Index");
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             Brand = await _context.Brand.ToListAsync();

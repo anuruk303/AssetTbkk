@@ -182,7 +182,7 @@ using tbkk_AC;
             WriteLiteral("                                            </td>\n                                            <td width=\"100px\">\n                                                ");
             EndContext();
             BeginContext(3921, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "799c699ceef2448d967dcaf55586831f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70860939dd1d45a1acf776bd225bfa2a", async() => {
                 BeginContext(3982, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -217,7 +217,7 @@ using tbkk_AC;
             WriteLiteral(" |\n                                                ");
             EndContext();
             BeginContext(4041, 73, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "20297f72c5c343bd86b866fdfe4221eb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d03e13d01cd402aaa44b106637768f6", async() => {
                 BeginContext(4104, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -342,7 +342,7 @@ using tbkk_AC;
             WriteLiteral("                                            </td>\n                                            <td width=\"100px\">\n                                                ");
             EndContext();
             BeginContext(6517, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfc1f060f00c420890ed2bf2b0dfab75", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4079d95ea7f84a44816832406e95996f", async() => {
                 BeginContext(6574, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -377,7 +377,7 @@ using tbkk_AC;
             WriteLiteral(" |\n                                                ");
             EndContext();
             BeginContext(6633, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38e2ff42c45c4f5886f807a38cc21ea5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76a837fd74e74c32a998172a28d76098", async() => {
                 BeginContext(6692, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

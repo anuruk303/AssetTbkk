@@ -183,7 +183,7 @@ using tbkk_AC;
                 ");
             EndContext();
             BeginContext(3507, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2226781a69a5471f8a5fb98736384475", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "126b9c51658d443699fabcc47440a950", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -210,7 +210,7 @@ AddHtmlAttributeValue("", 3527, Html.DisplayFor(model => model.Category.Image), 
             WriteLiteral("\n\n            </div>\n\n        </div>\n    </div>\n    <div>\n        ");
             EndContext();
             BeginContext(3673, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6992b4036a414b40a7573fbecdb79a37", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a01885e723fa49c4a46f28a30e1ffb87", async() => {
                 BeginContext(3736, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -245,7 +245,7 @@ AddHtmlAttributeValue("", 3527, Html.DisplayFor(model => model.Category.Image), 
             WriteLiteral(" |\n        ");
             EndContext();
             BeginContext(3755, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9469c260cade4ec3949d6c449d4dc2be", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "baf868c2095c42ffa709cbfb445bacbc", async() => {
                 BeginContext(3777, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
