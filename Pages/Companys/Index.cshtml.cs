@@ -21,10 +21,26 @@ namespace tbkk_AC.Pages.Companys
         }
 
         public IList<Company> Company { get;set; }
-
+        public Company CompanyDelete { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public async Task OnGetAsync()
         {
             Company = await _context.Company.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            CompanyDelete = await _context.Company.FindAsync(Deletid);
+            CompanyDelete.Status = "Unused";
+            _context.Attach(CompanyDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

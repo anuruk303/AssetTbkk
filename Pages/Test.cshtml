@@ -4,134 +4,192 @@
     ViewData["Title"] = "Test";
 }
 
-<div id="content-wrapper">
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.html">Asset Control</a>
-            </li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">Expired</li>
-        </ol>
-        <!-- DataTables Example -->
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <!-- DataTables Example -->
 
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="dataTable_length">
-                    <i class="fas fa-table">Expired</i>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="dataTable_length">
+                        <i class="fas fa-table">Expired</i>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3" style="font-size:small">
-                        <thead>
-                            <tr>
-                                <th>
-                                    ID
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    StartDate
-                                </th>
-                                <th>
-                                    ExpireDate
-                                </th>
-                                <th>
-                                    Status
-                                </th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.License)
-                            {
-                                if (!item.Status.Equals("Unused"))
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3" style="font-size:small">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        StartDate
+                                    </th>
+                                    <th>
+                                        ExpireDate
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.License)
                                 {
-                                    if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                    if (!item.Status.Equals("Unused"))
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LicenseID)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LicenseName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.InstallDate)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ExpireDate)
-                                            </td>
+                                        if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.LicenseID)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.LicenseName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.InstallDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                                                </td>
 
-                                            <td>
-                                                @if (item.ExpireDate < DateTime.Now.AddMonths(+1)&&item.ExpireDate > DateTime.Now)
-                                                {
-                                                    <h4>
-                                                        <span class="badge badge-warning">Expiring</span>
-                                                    </h4>
-                                                }
-                                                else
-                                                {
-                                                    <h4>
-                                                        <span class="badge badge-danger">Expired</span>
-                                                    </h4>
-                                                }
-                                            </td>
-                                            <td width="100px">
-                                                <a asp-page="./Licenses/Edit" asp-route-id="@item.LicenseID">Edit</a> |
-                                                <a asp-page="./Licenses/Delete" asp-route-id="@item.LicenseID">Delete</a>
-                                            </td>
-                                        </tr>
+                                                <td>
+                                                    @if (item.ExpireDate < DateTime.Now.AddMonths(+1) && item.ExpireDate > DateTime.Now)
+                                                    {
+                                                        <h4>
+                                                            <span class="badge badge-warning">Expiring</span>
+                                                        </h4>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4>
+                                                            <span class="badge badge-danger">Expired</span>
+                                                        </h4>
+                                                    }
+                                                </td>
+                                                <td width="20%">
+
+                                                    <a asp-page="./Licenses/Edit" asp-route-id="@item.LicenseID">
+                                                        <button type="button" class="btn btn-outline-warning">
+                                                            Edit
+
+                                                        </button>
+                                                    </a>
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteLiModal" onclick="Delete(@item.LicenseID)">Delete</button>
+                                                </td>
+                                                   
+                                                
+                                            </tr>
+                                        }
                                     }
                                 }
-                            }
-                            @foreach (var item in Model.Asset)
-                            {
-                                if (!item.Status.Equals("Unused"))
+                                @foreach (var item in Model.Asset)
                                 {
-                                    if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                    if (!item.Status.Equals("Unused"))
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.AssetID)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.AssetName)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.InstallDate)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ExpireDate)
-                                            </td>
-                                            <td>
-                                                @if (item.ExpireDate < DateTime.Now.AddMonths(+1)&&item.ExpireDate > DateTime.Now)
-                                                {
-                                                    <h4>
-                                                        <span class="badge badge-warning">Expiring</span>
-                                                    </h4>
-                                                }
-                                                else
-                                                {
-                                                    <h4>
-                                                        <span class="badge badge-danger">Expired</span>
-                                                    </h4>
-                                                }
-                                            </td>
-                                            <td width="100px">
-                                                <a asp-page="./Assets/Edit" asp-route-id="@item.AssetID">Edit</a> |
-                                                <a asp-page="./Assets/Delete" asp-route-id="@item.AssetID">Delete</a>
-                                            </td>
-                                        </tr>
+                                        if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.AssetID)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.AssetName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.InstallDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                                                </td>
+                                                <td>
+                                                    @if (item.ExpireDate < DateTime.Now.AddMonths(+1) && item.ExpireDate > DateTime.Now)
+                                                    {
+                                                        <h4>
+                                                            <span class="badge badge-warning">Expiring</span>
+                                                        </h4>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h4>
+                                                            <span class="badge badge-danger">Expired</span>
+                                                        </h4>
+                                                    }
+                                                </td>
+                                                <td width="20%">
+
+                                                    <a asp-page="./Assets/Edit" asp-route-id="@item.AssetID">
+                                                        <button type="button" class="btn btn-outline-warning">
+                                                            Edit
+
+                                                        </button>
+                                                    </a>
+                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.AssetID)">Delete</button>
+                                                </td>
+                                            </tr>
+                                        }
                                     }
                                 }
-                            }
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure?</p>
+                        </div>
+                        <input asp-for="Deletid" />
+                        <div class="modal-footer">
+                            <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form method="post" enctype="multipart/form-data">
+            <div class="modal" tabindex="-1" role="dialog" id="deleteLiModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure?</p>
+                        </div>
+                        <input asp-for="DeletidLi" />
+                        <div class="modal-footer">
+                            <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script>
+            function Delete(id) {
+                document.getElementById("Deletid").value = id
+                 document.getElementById("DeletidLi").value = id
+            }
+        </script>

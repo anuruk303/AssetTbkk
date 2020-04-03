@@ -21,6 +21,10 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
 
         public async Task<IActionResult> OnGetAsync(int id, String num)
         {
+            Company = await _context.Company.ToListAsync();
+            Category = await _context.Category.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            Location = await _context.Location.ToListAsync();
             Num = num;
             ID = id;
             Asset = await _context.Asset.ToListAsync();
@@ -30,6 +34,10 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
 
         [BindProperty]
         public Join_Asset_Emp Join_Asset_Emp { get; set; }
+        public IList<Company> Company { get; set; }
+        public IList<Category> Category { get; set; }
+        public IList<Location> Location { get; set; }
+        public IList<Department> Department { get; set; }
         public IList<Asset> Asset { get; set; }
         public string Num { get; set; }
         public int ID { get;set; }

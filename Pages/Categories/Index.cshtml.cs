@@ -21,10 +21,26 @@ namespace tbkk_AC.Pages.Categories
         }
 
         public IList<Category> Category { get;set; }
-
+        public Category CategoryDelete { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public async Task OnGetAsync()
         {
             Category = await _context.Category.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            CategoryDelete = await _context.Category.FindAsync(Deletid);
+            CategoryDelete.Status = "Unused";
+            _context.Attach(CategoryDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

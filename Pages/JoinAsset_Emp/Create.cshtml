@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Asset_AssetID"></label>
+                                <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Asset_AssetID">Asset</label>
                                 @if (Model.Num == "1")
                                 {
                                     <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Asset_AssetID" id="AssetID" value="@Model.ID" />
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Employee_EmployeeID"></label>
+                        <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Employee_EmployeeID">Employee</label>
                         @if (Model.Num == "2")
                         {
                             <input class="form-control" placeholder="EmployeeID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" value="@Model.ID" />
@@ -67,8 +67,8 @@
                     </div>
                 </div>
                 <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
-                    <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
-                    <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-secondary" />
+
+                    <input style="margin-left:10px" type="submit" value="Confirm" class="btn btn-outline-success" />
                 </div>
             </div>
 
@@ -101,56 +101,74 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                     </th>
-                                   
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Asset[0].Status)
+                                        Category
                                     </th>
                                     <th>
                                         Company
                                     </th>
-                                    <th>
-                                        Location
-                                    </th>
+
                                     <th>
                                         Department
                                     </th>
 
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Asset[0].Status)
+                                    </th>
                                     <th>Select</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.Asset)
                                 {
-                                    if (item.Status.Equals("InStock"))
+                                    if (item.Status.Equals("InStock")||!item.Status.Equals("Unused"))
                                     {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AssetID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AssetName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PurchaseDate)
-                                        </td>
-                                        
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Company_CompanyID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Location_LocationID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Department_DepartmentID)
-                                        </td>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AssetID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AssetName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PurchaseDate)
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Category)
+                                        {
+                                            if (item.Category == item1.CategoryID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.CategoryName)
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Company)
+                                        {
+                                            if (item.Company_CompanyID == item1.CompanyID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.CompanyName)
+                                            }
+                                        }
 
-                                        <td>
-                                            <button type="button" class="btn btn-outline-success" onclick="select1(@item.AssetID)">Select</button>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Department)
+                                        {
+                                            if (item.Department_DepartmentID == item1.DepartmentID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                            }
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success" onclick="select1(@item.AssetID)">Select</button>
+                                    </td>
+                                </tr>
                                     }
                                 }
 
@@ -163,7 +181,7 @@
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered " id="dataTable1" width="100%" cellspacing="3">
+                        <table class="table table-bordered " id="dataTable1" width="100%" cellspacing="3" style="font-size:small">
                             <thead>
                                 <tr>
                                     <th>
@@ -175,9 +193,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Employee[0].LastName)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Employee[0].Status)
-                                    </th>
+                                    
                                     <th>
                                         Company
                                     </th>
@@ -187,13 +203,15 @@
                                     <th>
                                         Department
                                     </th>
-
+                                    
                                     <th>Select</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item1 in Model.Employee)
                                 {
+                                    if (!item1.Status.Equals("Unused"))
+                                    {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item1.EmployeeID)
@@ -204,23 +222,43 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item1.LastName)
                                         </td>
+                                        
                                         <td>
-                                            @Html.DisplayFor(modelItem => item1.Status)
+                                            @foreach (var item2 in Model.Company)
+                                            {
+                                                if (item1.Company_CompanyID == item2.CompanyID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item2.CompanyName)
+                                                }
+                                            }
+                                           
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item1.Company_CompanyID)
+                                            @foreach (var item2 in Model.Location)
+                                            {
+                                                if (item1.Location_LocationID == item2.LocationID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item2.LocationName)
+                                                }
+                                            }
+                                           
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item1.Location_LocationID)
+                                            @foreach (var item2 in Model.Department)
+                                            {
+                                                if (item1.Department_DepartmentID == item2.DepartmentID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item2.DepartmentName)
+                                                }
+                                            }
+                                            
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item1.Department_DepartmentID)
-                                        </td>
-
+                                       
                                         <td>
                                             <button type="button" class="btn btn-outline-success" onclick="select2(@item1.EmployeeID)">Select</button>
                                         </td>
                                     </tr>
+                                    }
                                 }
 
                             </tbody>

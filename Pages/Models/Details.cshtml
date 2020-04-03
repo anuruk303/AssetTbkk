@@ -38,7 +38,14 @@
                                                     <td>@Html.DisplayFor(model => model.Model.Brand.BrandName)</td>
 
                                                 </div>
-                                               
+                                                <div class="col">
+                                                    <div class="col">
+                                                        <td>@Html.DisplayNameFor(model => model.Model.Status) :</td>
+                                                        <td>@Html.DisplayFor(model => model.Model.Status)</td>
+
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </tr>
@@ -46,17 +53,16 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Model.Status) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Model.Status)</td>
-
-                                                </div>
-                                                <div class="col">
                                                     <td>@Html.DisplayNameFor(model => model.Model.Note) :</td>
                                                     <td>
                                                         <div class="form-group">
                                                             <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Model.Note)</textarea>
                                                         </div>
                                                     </td>
+                                                </div>
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,9 +89,20 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top:2%">
-            <a asp-page="./Edit" asp-route-id="@Model.Model.ModelID">Edit</a> |
-            <a asp-page="./Index" asp-route-id="@Model.Model.ModelID">Back to List</a>
+        <div style="margin-top:2%;margin-left:1.5%">
+
+
+
+            <a asp-page="./Index">
+                <button type="button" class="btn btn-outline-secondary">
+                    Back
+                </button>
+            </a>
+            <a asp-page="./Edit" asp-route-id="@Model.Model.ModelID">
+                <button type="button" class="btn btn-outline-warning">
+                    Edit
+                </button>
+            </a>
         </div>
     </div>
 

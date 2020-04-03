@@ -17,7 +17,9 @@ namespace tbkk_AC.Pages.Licenses
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int DeletidLi { get; set; }
+        
         public License License { get; set; }
       
         public IList<Supplier> Supplier { get; set; }
@@ -25,8 +27,25 @@ namespace tbkk_AC.Pages.Licenses
         public IList<Company> Company { get; set; }
         public IList<Join_License_Asset> Join_License_Asset { get; set; }
         public IList<Asset> Asset { get; set; }
+        public Join_License_Asset Join_License_AssetDelete { get; set; }
         public IList<Update_License> Update_License { get; set; }
+        public async Task<IActionResult> OnPostDeleteLiAsync()
+        {
+            if (DeletidLi == 0)
+            {
+                return NotFound();
+            }
 
+            Join_License_AssetDelete = await _context.Join_License_Asset.FindAsync(DeletidLi);
+            Join_License_AssetDelete.Status = "Unjoin";
+            _context.Attach(Join_License_AssetDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            var LicenseUpdate = await _context.License.FindAsync(Join_License_AssetDelete.License_LicenseID);
+            LicenseUpdate.Status = "InStock";
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             Update_License = await _context.Update_License.ToListAsync();

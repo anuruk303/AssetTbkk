@@ -21,12 +21,28 @@ namespace tbkk_AC.Pages.Models
         }
 
         public IList<Model> Model { get;set; }
-
+        public Model ModelDelete { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public async Task OnGetAsync()
         {
             Model = await _context.Model
                 .Include(m => m.Brand)
                 .ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            ModelDelete = await _context.Model.FindAsync(Deletid);
+            ModelDelete.Status = "Unused";
+            _context.Attach(ModelDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

@@ -19,8 +19,10 @@ namespace tbkk_AC.Pages.Employees
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public IList<Employee> Employee { get;set; }
+        public Employee EmployeeDelete { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -30,6 +32,20 @@ namespace tbkk_AC.Pages.Employees
                 .Include(e => e.EmployeeType)
                 .Include(e => e.Location)
                 .Include(e => e.Position).ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            EmployeeDelete = await _context.Employee.FindAsync(Deletid);
+            EmployeeDelete.Status = "Unused";
+            _context.Attach(EmployeeDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

@@ -108,22 +108,26 @@
                             <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-4" style="margin-top: 2%;">
-                            <table>
-                                <tr>
-                                    <td>Category</td>
-                                    <td align="center">Using</td>
-                                    <td align="right">Instock</td>
-                                </tr>
-                                @foreach (var item in Model.status)
-                                {
+                            <table class="table">
+                                <thead >
                                     <tr>
-                                        <td>@Html.DisplayFor(modelItem => item.Name) :</td>
-                                        <td align="center">@Html.DisplayFor(modelItem => item.Using)</td>
-                                        <td align="center">@Html.DisplayFor(modelItem => item.Instock)</td>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Using</th>
+                                        <th scope="col">Instock</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                        @foreach (var item in Model.status)
+                                        {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Name) :</td>
+                                            <td >@Html.DisplayFor(modelItem => item.Using)</td>
+                                            <td >@Html.DisplayFor(modelItem => item.Instock)</td>
+                                        </tr>
 
-                                }
-                            </table>
+                                    }
+                                    </tbody>
+                                </table>
                         </div>
 
                     </div>
@@ -136,22 +140,27 @@
                            
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-4" style="margin-top: 2%;">
-                            <table>
-                                <tr>
-                                    <td>Supplier</td>
-                                    <td align="center">Using</td>
-                                    <td align="right">Instock</td>
-                                </tr>
-                                @foreach (var item in Model.statusLicense)
-                                {
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>@Html.DisplayFor(modelItem => item.Name) :</td>
-                                        <td align="center">@Html.DisplayFor(modelItem => item.Using)</td>
-                                        <td align="center">@Html.DisplayFor(modelItem => item.Instock)</td>
+                                        <th scope="col">Supplier</th>
+                                        <th scope="col">Using</th>
+                                        <th scope="col">Instock</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.statusLicense)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Name) :</td>
+                                            <td >@Html.DisplayFor(modelItem => item.Using)</td>
+                                            <td >@Html.DisplayFor(modelItem => item.Instock)</td>
+                                        </tr>
 
-                                }
+                                    }
+                                </tbody>
                             </table>
+                           
                         </div>
 
                     </div>
@@ -164,20 +173,25 @@
                             <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
                         </div>
                         <div class="col-sm-4" style="margin-top: 2%;">
-                            <table>
-                                <tr>
-                                    <td>Department</td>
-                                    <td align="center">Using</td>
-                                </tr>
-                                @foreach (var item in Model.statusEmployee)
-                                {
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>@Html.DisplayFor(modelItem => item.Name) :</td>
-                                        <td align="center">@Html.DisplayFor(modelItem => item.Using)</td>
-
+                                        <th scope="col">Department</th>
+                                        <th scope="col">Working</th>
+                                        
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.statusEmployee)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Name) :</td>
+                                            <td align="center">@Html.DisplayFor(modelItem => item.Using)</td>
 
-                                }
+                                        </tr>
+
+                                    }
+                                </tbody>
                             </table>
                         </div>
 

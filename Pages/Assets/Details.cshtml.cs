@@ -79,7 +79,7 @@ namespace tbkk_AC.Pages.Assets
             Join_License_AssetDelete = await _context.Join_License_Asset.FindAsync(DeletidLi);
             Join_License_AssetDelete.Status = "Unjoin";
 
-            _context.Attach(Join_Asset_AssetDelete).State = EntityState.Modified;
+            _context.Attach(Join_License_AssetDelete).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             var LicenseUpdate = await _context.License.FindAsync(Join_License_AssetDelete.License_LicenseID);
             LicenseUpdate.Status = "InStock";

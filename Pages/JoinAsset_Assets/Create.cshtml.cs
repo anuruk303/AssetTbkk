@@ -21,7 +21,9 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
 
         public async Task<IActionResult> OnGetAsync(int id,String num)
         {
-
+            Category = await _context.Category.ToListAsync();
+            Company = await _context.Company.ToListAsync();
+            Department = await _context.Department.ToListAsync();
             Asset = await _context.Asset.ToListAsync();
             Num = num;
             ID = id;
@@ -33,7 +35,9 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
         public IList<Asset> Asset { get; set; }
         public string Num { get; set; }
         public int ID { get; set; }
-
+        public IList<Category> Category { get; set; }
+        public IList<Company> Company { get; set; }
+        public IList<Department> Department { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

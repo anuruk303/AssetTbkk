@@ -8,11 +8,7 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Asset Control</li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">Position</li>
-        </ol>
+        
         <div class="card ">
             <div class="card-header" style="font-weight:bold;color:darkblue;">
                 Create
@@ -76,9 +72,13 @@
                                 <input asp-for="Supplier.Image" class="form-control" hidden id="pho2" />
                                 <span asp-validation-for="Supplier.Image" class="text-danger"></span>
                             </div>
-                            <div class="form-group row" style="float:right; margin-right:9%">
-                                <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
-                                <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-dark" onclick="run()" />
+                            <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
+                                <a asp-page="./Index">
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        Back
+                                    </button>
+                                </a>
+                                <input style="margin-left:10px" type="submit" value="Confirm" class="btn btn-outline-success" />
                             </div>
                         </form>
                     </div>

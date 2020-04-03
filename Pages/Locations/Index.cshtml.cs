@@ -20,12 +20,28 @@ namespace tbkk_AC.Pages.Locations
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public IList<Location> Location { get;set; }
+        public Location LocationDelete { get; set; }
 
         public async Task OnGetAsync()
         {
             Location = await _context.Location.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            LocationDelete = await _context.Location.FindAsync(Deletid);
+            LocationDelete.Status = "Unused";
+            _context.Attach(LocationDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

@@ -7,26 +7,17 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active">Asset Control</li>
-                <li class="breadcrumb-item active">Managment</li>
-                <li class="breadcrumb-item active">Employee</li>
-            </ol>
-            <!-- DataTables Example -->
+           
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="dataTable_length">
                         <i class="fas fa-table">Employee</i>
                         <div style="float: right">
                             <a asp-page="Create">
-                                <button type="button" class="btn btn-primary brands-modal">
-
-                                    Create
-                                </button>
+                                <button type="button" class="btn btn-outline-info">Create</button>
                             </a>
                             <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
-                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                            <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                         </div>
                     </div>
 
@@ -61,9 +52,6 @@
                                         @Html.DisplayNameFor(model => model.Employee[0].Gender)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Employee[0].Status)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.Employee[0].Company)
                                     </th>
                                     <th>
@@ -94,9 +82,6 @@
                                                 @Html.DisplayFor(modelItem => item.Gender)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Status)
-                                            </td>
-                                            <td>
                                                 @Html.DisplayFor(modelItem => item.Company.CompanyName)
                                             </td>
                                             <td>
@@ -108,11 +93,22 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Position.PositionName)
                                             </td>
-                                            <td width="100px">
-                                                <a asp-page="./Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                                                <a asp-page="./Details" asp-route-id="@item.EmployeeID">Detail</a>
-                                                <a asp-page="./Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                                            <td width="20%">
+                                                <a asp-page="./Details" asp-route-id="@item.EmployeeID">
+                                                    <button type="button" class="btn btn-outline-primary">
+                                                        Deatail
+                                                    </button>
+                                                </a>
+                                                <a asp-page="./Edit" asp-route-id="@item.EmployeeID">
+                                                    <button type="button" class="btn btn-outline-warning">
+                                                        Edit
+
+                                                    </button>
+                                                </a>
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.EmployeeID)">Delete</button>
                                             </td>
+                                                
+                                            
                                         </tr>
                                     }
                                 }
@@ -123,9 +119,37 @@
             </div>
         </div>
     </div>
-    <script>
+<form method="post" enctype="multipart/form-data">
+            <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure?</p>
+                        </div>
+                        <input asp-for="Deletid" />
+                        <div class="modal-footer">
+                            <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script>
+             function Delete(id) {
+        document.getElementById("Deletid").value = id
+    }
 
         function run() {
             document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
         }
+            function run() {
+        document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+    } 
     </script>

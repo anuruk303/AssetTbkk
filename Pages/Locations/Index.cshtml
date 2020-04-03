@@ -7,89 +7,127 @@
 
 <div id="content-wrapper">
     <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Asset Control</li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">Locations</li>
-        </ol>
-       
-            <!-- DataTables Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <div class="dataTable_length">
                     <i class="fas fa-table">Locations</i>
                     <div style="float: right">
                         <a asp-page="Create">
-                            <button type="button" class="btn btn-primary brands-modal">
+                            <button type="button" class="btn btn-outline-info">
                                 Create
                             </button>
                         </a>
-                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
+                        <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                     </div>
                 </div>
-            </div> 
+            </div>
             <form method="post" enctype="multipart/form-data">
                 <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
                     <div class="card card-body" style="margin-left:70%">
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
-                                <label class="custom-file-label" for="fUpload"></label>
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
+                                <label class="custom-file-label" for="fUpload" id="ff"></label>
                             </div>
                             <div class="input-group-append">
-                                <input class="btn btn-outline-info" value="Upload" type="submit"/>
+                                <input class="btn btn-outline-info" value="Upload" type="submit" />
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size:small">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Location[0].LocationName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Location[0].Note)
-                                    </th>
-                                    <th>Actions</th>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size:small">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Location[0].LocationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Location[0].Note)
+                                </th>
+                                <th>Actions</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Location)
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Location)
+                            {
+                                if (!item.Status.Equals("Unused"))
                                 {
-                                    if (item.Status.Equals("Using"))
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.LocationName)
-                                            </td>
-                                            <td>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LocationName)
+                                        </td>
+                                        <td>
+                                            @if (!item.Note.Equals(""))
+                                            {
                                                 @Html.DisplayFor(modelItem => item.Note)
-                                            </td>
-                                            <td width="100px">
-                                                <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
-                                                <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
-                                            </td>
-                                        </tr>
-                                    }
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                           
+                                        </td>
+                                        <td width="20%">
+
+                                            <a asp-page="./Edit" asp-route-id="@item.LocationID">
+                                                <button type="button" class="btn btn-outline-warning">
+                                                    Edit
+
+                                                </button>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.LocationID)">Delete</button>
+                                        </td>
+
+
+                                    </tr>
                                 }
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                        </tbody>
+                    </table>
                 </div>
+            </div>
         </div>
-       
+
     </div>
 </div>
+<form method="post" enctype="multipart/form-data">
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <input asp-for="Deletid" />
+                <div class="modal-footer">
+                    <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
+
+<script>
+    function Delete(id) {
+        document.getElementById("Deletid").value = id
+
+    }
+</script>
 <script type="text/javascript">
     function run() {
-        document.getElementById("Excel").innerHTML = document.getElementById("fUpload").value;
-    }
+        document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+    } 
 
 </script>

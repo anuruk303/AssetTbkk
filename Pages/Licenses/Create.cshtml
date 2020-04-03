@@ -26,7 +26,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.LicenseName" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.LicenseName" class="form-control" placeholder="LicenseName" />
+                                        <input asp-for="License.LicenseName" class="form-control form-control-sm" placeholder="LicenseName" />
                                         <span asp-validation-for="License.LicenseName" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
 
                                     <div class="col-sm-12">
                                         <label asp-for="License.PONumber" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.PONumber" class="form-control" placeholder="PONumber" />
+                                        <input asp-for="License.PONumber" class="form-control form-control-sm" placeholder="PONumber" />
                                         <span asp-validation-for="License.PONumber" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -44,14 +44,14 @@
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.SoftewareName" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.SoftewareName" class="form-control" placeholder="SoftewareName" />
+                                        <input asp-for="License.SoftewareName" class="form-control form-control-sm" placeholder="SoftewareName" />
                                         <span asp-validation-for="License.SoftewareName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.Attachfiles" class="col-sm-0 col-form-label">AttachFiles</label>
-                                        <input asp-for="License.Attachfiles" class="form-control" placeholder="AttachFiles" />
+                                        <input asp-for="License.Attachfiles" class="form-control form-control-sm" placeholder="AttachFiles" />
                                         <span asp-validation-for="License.Attachfiles" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.Supplier_SupplierID" class="col-sm-0 col-form-label">Supplier</label>
-                                        <select asp-for="License.Supplier_SupplierID" class="form-control">
+                                        <select asp-for="License.Supplier_SupplierID" class="form-control form-control-sm">
                                             <option selected value=@null>Plase select</option>
                                             @foreach (var item in Model.Supplier)
                                             {
@@ -89,7 +89,7 @@
 
                                     <div class="col-sm-12">
                                         <label asp-for="License.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
-                                        <select asp-for="License.Company_CompanyID" class="form-control">
+                                        <select asp-for="License.Company_CompanyID" class="form-control form-control-sm">
                                             <option selected value=@null>Plase select</option>
                                             @foreach (var item in Model.Company)
                                             {
@@ -109,7 +109,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
-                                        <select asp-for="License.Department_DepartmentID" class="form-control">
+                                        <select asp-for="License.Department_DepartmentID" class="form-control form-control-sm">
                                             <option selected value=@null>Plase select</option>
                                             @foreach (var item in Model.Department)
                                             {
@@ -138,31 +138,31 @@
                         <div class="row">
                             <div class="col">
                                 <label asp-for="License.PurchaseDate" class="col-sm-0 col-form-label"></label>
-                                <input asp-for="License.PurchaseDate" class="form-control" />
+                                <input asp-for="License.PurchaseDate" class="form-control form-control-sm" />
                                 <span asp-validation-for="License.PurchaseDate" class="text-danger"></span>
-                                </div>
+                            </div>
 
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <div class="col-sm-12">
-                                            <label asp-for="License.InstallDate" class="col-sm-0 col-form-label"></label>
-                                            <input asp-for="License.InstallDate" class="form-control" />
-                                            <span asp-validation-for="License.InstallDate" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <div class="col-sm-12">
-                                            <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
-                                            <input asp-for="License.ExpireDate" class="form-control" />
-                                            <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
-                                        </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.InstallDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.InstallDate" class="form-control form-control-sm" />
+                                        <span asp-validation-for="License.InstallDate" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.ExpireDate" class="form-control form-control-sm" />
+                                        <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="card " style="margin-top:1%">
@@ -183,7 +183,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label asp-for="License.Status" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.Status" class="form-control" value="Using" readonly />
+                                        <input asp-for="License.Status" class="form-control form-control-sm" value="Using" readonly />
                                         <span asp-validation-for="License.Status" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -197,8 +197,12 @@
                 </div>
 
                 <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
-                    <a asp-page="./Index" ><button type="button" class="btn btn-link">Back to List</button></a>
-                    <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-secondary" />
+                    <a asp-page="./Index">
+                        <button type="button" class="btn btn-outline-secondary">
+                            Back
+                        </button>
+                    </a>
+                    <input style="margin-left:10px" type="submit" value="Confirm" class="btn btn-outline-success" />
                 </div>
             </form>
         </div>

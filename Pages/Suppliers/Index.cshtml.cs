@@ -19,12 +19,28 @@ namespace tbkk_AC.Pages.Suppliers
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
+        public Supplier SupplierDelete { get; set; }
         public IList<Supplier> Supplier { get;set; }
 
         public async Task OnGetAsync()
         {
             Supplier = await _context.Supplier.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            SupplierDelete = await _context.Supplier.FindAsync(Deletid);
+            SupplierDelete.Status = "Unused";
+            _context.Attach(SupplierDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

@@ -19,9 +19,24 @@ namespace tbkk_AC.Pages.Positions
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public IList<Position> Position { get; set; }
+        public Position PositionDelete { get; set; }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
 
+            PositionDelete = await _context.Position.FindAsync(Deletid);
+            PositionDelete.Status = "Unused";
+            _context.Attach(PositionDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
         public async Task OnGetAsync()
         {
             Position = await _context.Position.ToListAsync();

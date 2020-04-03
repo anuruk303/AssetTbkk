@@ -21,10 +21,26 @@ namespace tbkk_AC.Pages.Departments
         }
 
         public IList<Department> Department { get;set; }
-
+        public Department DepartmentDelete { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public async Task OnGetAsync()
         {
             Department = await _context.Department.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            DepartmentDelete = await _context.Department.FindAsync(Deletid);
+            DepartmentDelete.Status = "Unused";
+            _context.Attach(DepartmentDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

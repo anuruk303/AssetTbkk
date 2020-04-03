@@ -19,12 +19,28 @@ namespace tbkk_AC.Pages.Brands
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
+        public Brand BrandDelete { get; set; }
         public IList<Brand> Brand { get;set; }
 
         public async Task OnGetAsync()
         {
             Brand = await _context.Brand.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            BrandDelete = await _context.Brand.FindAsync(Deletid);
+            BrandDelete.Status = "Unused";
+            _context.Attach(BrandDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

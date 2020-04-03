@@ -19,12 +19,28 @@ namespace tbkk_AC.Pages.Networks
         {
             _context = context;
         }
-
+        [BindProperty(SupportsGet = true)]
+        public int Deletid { get; set; }
         public IList<Network> Network { get;set; }
+        public Network NetworkDelete { get; set; }
 
         public async Task OnGetAsync()
         {
             Network = await _context.Network.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            if (Deletid == 0)
+            {
+                return NotFound();
+            }
+
+            NetworkDelete = await _context.Network.FindAsync(Deletid);
+            NetworkDelete.Status = "Unused";
+            _context.Attach(NetworkDelete).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {

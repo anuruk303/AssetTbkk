@@ -21,13 +21,22 @@ namespace tbkk_AC.Pages.JoinNetwork_Assets
 
         public async Task<IActionResult> OnGetAsync(int id, String num)
         {
+            Company = await _context.Company.ToListAsync();
+            Supplier = await _context.Supplier.ToListAsync();
+            Category = await _context.Category.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            Location = await _context.Location.ToListAsync();
             Num = num;
             ID = id;
             Asset = await _context.Asset.ToListAsync();
             Network = await _context.Network.ToListAsync();
             return Page();
         }
-
+        public IList<Company> Company { get; set; }
+        public IList<Category> Category { get; set; }
+        public IList<Location> Location { get; set; }
+        public IList<Department> Department { get; set; }
+        public IList<Supplier> Supplier { get; set; }
         [BindProperty]
         public Join_Network_Asset Join_Network_Asset { get; set; }
         public IList<Asset> Asset { get; set; }

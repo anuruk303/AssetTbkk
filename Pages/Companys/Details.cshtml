@@ -73,7 +73,15 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyID">Edit</a> |
-            <a asp-page="./Index">Back to List</a>
+        <div style="margin-left:1.5%">
+            <a asp-page="./Index">
+                <button type="button" class="btn btn-outline-secondary">
+                    Back
+                </button>
+            </a>
+            <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyID">
+                <button type="button" class="btn btn-outline-warning">
+                    Edit
+                </button>
+            </a>
         </div>
