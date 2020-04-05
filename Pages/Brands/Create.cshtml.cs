@@ -31,20 +31,29 @@ namespace tbkk_AC.Pages.Brands
 
         [BindProperty]
         public Brand Brand { get; set; }
-
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Brand.Image = photo.FileName;
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
+                var fileStream = new FileStream(file, FileMode.Create);
+                Brand.Image = photo.FileName;
+                if (!ModelState.IsValid)
+                {
+
+                }
+                _context.Brand.Add(Brand);
+                await _context.SaveChangesAsync();
+                await photo.CopyToAsync(fileStream);
+                return RedirectToPage("./Index");
+
             }
-            _context.Brand.Add(Brand);
-            await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
+            catch (InvalidCastException e)
+            {
+            }
+
             return RedirectToPage("./Index");
         }
+       
     }
 }

@@ -69,36 +69,25 @@
                                 {
                                     <tr>
                                         <td>
-                                            @if (!item.SupplierName.Equals(""))
-                                            {
+                                            
                                                 @Html.DisplayFor(modelItem => item.SupplierName)
-                                            }
-                                            else
-                                            {
-                                                <text>No SupplierName</text>
-                                            }
+                                           
+                                               
+                                           
 
                                         </td>
 
                                         <td>
-                                            @if (!item.ContactName.Equals(""))
-                                            {
+                                           
                                                 @Html.DisplayFor(modelItem => item.ContactName)
-                                            }
-                                            else
-                                            {
+                                           
                                                 <text>No ContactName</text>
-                                            }
+                                           
                                         </td>
                                         <td>
-                                            @if (!item.Email.Equals(""))
-                                            {
+                                            
                                                 @Html.DisplayFor(modelItem => item.Email)
-                                            }
-                                            else
-                                            {
-                                                <text>No Email</text>
-                                            }
+                                            
 
                                         </td>
                                         <td width="20%">

@@ -28,20 +28,29 @@ namespace tbkk_AC.Pages.Categories
 
         [BindProperty]
         public Category Category { get; set; }
-
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Category.Image = photo.FileName;
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
+                var fileStream = new FileStream(file, FileMode.Create);
+                Category.Image = photo.FileName;
+                if (!ModelState.IsValid)
+                {
+
+                }
+                _context.Category.Add(Category);
+                await _context.SaveChangesAsync();
+                await photo.CopyToAsync(fileStream);
+                return RedirectToPage("./Index");
+
             }
-            _context.Category.Add(Category);
-            await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
+            catch (InvalidCastException e)
+            {
+            }
+
             return RedirectToPage("./Index");
         }
+        
     }
 }

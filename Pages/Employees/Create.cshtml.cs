@@ -42,16 +42,25 @@ namespace tbkk_AC.Pages.Employees
         private IHostingEnvironment environment;
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Employee.Image = photo.FileName;
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
+                var fileStream = new FileStream(file, FileMode.Create);
+                Employee.Image = photo.FileName;
+                if (!ModelState.IsValid)
+                {
+
+                }
+                _context.Employee.Add(Employee);
+                await _context.SaveChangesAsync();
+                await photo.CopyToAsync(fileStream);
+                return RedirectToPage("./Index");
+
             }
-            _context.Employee.Add(Employee);
-            await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
+            catch (InvalidCastException e)
+            {
+            }
+
             return RedirectToPage("./Index");
         }
     }
