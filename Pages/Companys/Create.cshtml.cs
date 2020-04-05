@@ -31,18 +31,15 @@ namespace tbkk_AC.Pages.Companys
         [BindProperty]
         public Company Company { get; set; }
 
-        public async Task<IActionResult> OnPostAsync(IFormFile photo)
+        public async Task<IActionResult> OnPostAsync()
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Company.Image = photo.FileName;
+            
             if (!ModelState.IsValid)
             {
                 return Page();
             }
             _context.Company.Add(Company);
             await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
             return RedirectToPage("./Index");
         }
     }

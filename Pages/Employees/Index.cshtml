@@ -73,7 +73,7 @@
                             <tbody>
                                 @foreach (var item in Model.Employee)
                                 {
-                                    if (item.Status.Equals("Using"))
+                                    if (!item.Status.Equals("Unused"))
                                     {
                                         <tr>
                                             <td>

@@ -31,18 +31,15 @@ namespace tbkk_AC.Pages.Departments
         [BindProperty]
         public Department Department { get; set; }
 
-        public async Task<IActionResult> OnPostAsync(IFormFile photo)
+        public async Task<IActionResult> OnPostAsync()
         {
-            var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);
-            var fileStream = new FileStream(file, FileMode.Create);
-            Department.Image = photo.FileName;
+           
             if (!ModelState.IsValid)
             {
                 return Page();
             }
             _context.Department.Add(Department);
             await _context.SaveChangesAsync();
-            await photo.CopyToAsync(fileStream);
             return RedirectToPage("./Index");
         }
     }
