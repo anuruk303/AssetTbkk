@@ -7,7 +7,11 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-           
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Employee</li>
+
+            </ol>
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="dataTable_length">
@@ -96,13 +100,12 @@
                                             <td width="20%">
                                                 <a asp-page="./Details" asp-route-id="@item.EmployeeID">
                                                     <button type="button" class="btn btn-outline-primary">
-                                                        Deatail
+                                                        Detail
                                                     </button>
                                                 </a>
                                                 <a asp-page="./Edit" asp-route-id="@item.EmployeeID">
                                                     <button type="button" class="btn btn-outline-warning">
                                                         Edit
-
                                                     </button>
                                                 </a>
                                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" onclick="Delete(@item.EmployeeID)">Delete</button>

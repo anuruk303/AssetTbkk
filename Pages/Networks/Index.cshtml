@@ -7,9 +7,13 @@
 
     <div id="content-wrapper">
         <div class="container-fluid">
-           
-            <!-- DataTables Example -->
 
+            <!-- DataTables Example -->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Network</li>
+
+            </ol>
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="dataTable_length">
@@ -82,7 +86,7 @@
                                             <td width="20%">
                                                 <a asp-page="./Details" asp-route-id="@item.NetworkID">
                                                     <button type="button" class="btn btn-outline-primary">
-                                                        Deatail
+                                                        Detail
                                                     </button>
                                                 </a>
                                                 <a asp-page="./Edit" asp-route-id="@item.NetworkID">

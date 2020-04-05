@@ -129,15 +129,16 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                            Status
+                                        </th>
+                                        <th>
                                             NetworkName
                                         </th>
                                         <th>
                                             Asset
                                         </th>
 
-                                        <th>
-                                            Status
-                                        </th>
+                                        
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -146,28 +147,36 @@
                                     {
                                         if (Model.Network.NetworkID == item.Network_NetworkID)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(model => model.Network.NetworkName)
-                                                </td>
-                                                <td>
-                                                    @foreach (var item1 in Model.Asset)
-                                                    {
-                                                        if (item.Asset_AssetID == item1.AssetID)
-                                                        {
-                                                            <a asp-page="../Assets/Details" asp-route-id="@item1.AssetID">
-                                                                @Html.DisplayFor(modelItem => item1.AssetName)
-                                                            </a>
-                                                        }
-                                                    }
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Status)
-                                                </td>
-                                                <td width="19%">
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinNetAsID)">Delete</button>
-                                                </td>
-                                            </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Network.NetworkName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Asset)
+                                            {
+                                                if (item.Asset_AssetID == item1.AssetID)
+                                                {
+                                                    <a asp-page="../Assets/Details" asp-route-id="@item1.AssetID">
+                                                        @Html.DisplayFor(modelItem => item1.AssetName)
+                                                    </a>
+                                                }
+                                            }
+                                        </td>
+
+                                        <td width="19%">
+                                            @if (item.Status.Equals("Join"))
+                                            {
+                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinNetAsID)">Delete</button>
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                        </td>
+                                    </tr>
                                         }
                                     }
                                 </tbody>

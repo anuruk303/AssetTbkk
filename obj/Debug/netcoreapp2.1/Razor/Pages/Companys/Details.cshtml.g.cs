@@ -182,7 +182,7 @@ using tbkk_AC;
                     ");
             EndContext();
             BeginContext(3813, 99, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9591421ecb784cfca93573d8165b5f57", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b9f6f761d68645aa830706d71e564042", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -209,7 +209,7 @@ AddHtmlAttributeValue("", 3833, Html.DisplayFor(model => model.Company.Image), 3
             WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div style=\"margin-left:1.5%\">\r\n            ");
             EndContext();
             BeginContext(4026, 167, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f574bfc2a21a4dcfbbe661be9fd14f6b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "56883ca7a96b41e0a51ee906143ba402", async() => {
                 BeginContext(4048, 141, true);
                 WriteLiteral("\r\n                <button type=\"button\" class=\"btn btn-outline-secondary\">\r\n                    Back\r\n                </button>\r\n            ");
                 EndContext();
@@ -231,7 +231,7 @@ AddHtmlAttributeValue("", 3833, Html.DisplayFor(model => model.Company.Image), 3
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(4207, 204, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92d10a8f4cc54154891424ce9eee719d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9bac1b46491b49c88d5287c5bd2368cb", async() => {
                 BeginContext(4268, 139, true);
                 WriteLiteral("\r\n                <button type=\"button\" class=\"btn btn-outline-warning\">\r\n                    Edit\r\n                </button>\r\n            ");
                 EndContext();

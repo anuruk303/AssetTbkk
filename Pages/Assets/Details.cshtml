@@ -95,7 +95,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <td>@Html.DisplayNameFor(model => model.Asset.Warranty)</td>
-                                                <td>: @Html.DisplayFor(model => model.Asset.Warranty)</td>
+                                                <td>: @Html.DisplayFor(model => model.Asset.Warranty) Year</td>
                                             </div>
                                             <div class="col">
                                                 <td>Category </td>
@@ -394,15 +394,16 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                            Status
+                                        </th>
+                                        <th>
                                             Asset
                                         </th>
                                         <th>
                                             Asset Join
                                         </th>
 
-                                        <th>
-                                            Status
-                                        </th>
+
 
 
 
@@ -415,38 +416,46 @@
                                     {
                                         if (Model.Asset.AssetID == item.Asset_AssetID || Model.Asset.AssetID == item.AssetSon)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(model => model.Asset.AssetName)
-                                                </td>
-                                                <td>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
 
-                                                    @foreach (var item1 in Model.Asset1)
-                                                    {
-                                                        if (item.AssetSon == item1.AssetID && item.AssetSon != Model.Asset.AssetID)
-                                                        {
-                                                            <a asp-page="../Assets/Details" asp-route-id="@item.AssetSon">
-                                                                @Html.DisplayFor(modelItem => item1.AssetName)
-                                                            </a>
-                                                        }
-                                                        if (item.Asset_AssetID == item1.AssetID && item.AssetSon == Model.Asset.AssetID)
-                                                        {
-                                                            <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">
-                                                                @Html.DisplayFor(modelItem => item1.AssetName)
-                                                            </a>
-                                                        }
+                                            @foreach (var item1 in Model.Asset1)
+                                            {
+                                                if (item.AssetSon == item1.AssetID && item.AssetSon != Model.Asset.AssetID)
+                                                {
+                                                    <a asp-page="../Assets/Details" asp-route-id="@item.AssetSon">
+                                                        @Html.DisplayFor(modelItem => item1.AssetName)
+                                                    </a>
+                                                }
+                                                if (item.Asset_AssetID == item1.AssetID && item.AssetSon == Model.Asset.AssetID)
+                                                {
+                                                    <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">
+                                                        @Html.DisplayFor(modelItem => item1.AssetName)
+                                                    </a>
+                                                }
 
-                                                    }
+                                            }
 
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Status)
-                                                </td>
+                                        </td>
+                                        <td width="19%">
+                                            @if (item.Status.Equals("Join"))
+                                            {
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinAsAsID)">Delete</button>
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                        </td>
 
-                                                <td width="19%">
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteAsModal" onclick="Delete(@item.JoinAsAsID)">Delete</button>
-                                                </td>
-                                            </tr>
+                                        
+                                    </tr>
                                         }
                                     }
 
@@ -463,13 +472,14 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                            Status
+                                        </th>
+                                        <th>
                                             Asset
                                         </th>
                                         <th>
                                             User
-                                        <th>
-                                            Status
-                                        </th>
+
                                         <th>Actions</th>
 
                                     </tr>
@@ -479,28 +489,36 @@
                                     {
                                         if (Model.Asset.AssetID == item.Asset_AssetID)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(model => model.Asset.AssetName)
-                                                </td>
-                                                <td>
-                                                    <a asp-page="../Employees/Details" asp-route-id="@item.Employee_EmployeeID">
-                                                        @foreach (var item1 in Model.Employee)
-                                                        {
-                                                            if (item.Employee_EmployeeID == item1.EmployeeID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item1.FirstName)
-                                                            }
-                                                        }
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Status)
-                                                </td>
-                                                <td width="19%">
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteEmpModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
-                                                </td>
-                                            </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            <a asp-page="../Employees/Details" asp-route-id="@item.Employee_EmployeeID">
+                                                @foreach (var item1 in Model.Employee)
+                                                {
+                                                    if (item.Employee_EmployeeID == item1.EmployeeID)
+                                                    {
+                                                        @Html.DisplayFor(modelItem => item1.FirstName)
+                                                    }
+                                                }
+                                            </a>
+                                        </td>
+                                        <td width="19%">
+                                            @if (item.Status.Equals("Join"))
+                                            {
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                        </td>
+                                        
+                                    </tr>
                                         }
                                     }
                                 </tbody>
@@ -515,13 +533,14 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                            Status
+                                        </th>
+                                        <th>
                                             Asset
                                         </th>
                                         <th>
                                             License
-                                        <th>
-                                            Status
-                                        </th>
+
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -530,30 +549,37 @@
                                     {
                                         if (Model.Asset.AssetID == item.Asset_AssetID)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(model => model.Asset.AssetName)
-                                                </td>
-                                                <td>
-                                                    @foreach (var item1 in Model.License)
-                                                    {
-                                                        if (item.License_LicenseID == item1.LicenseID)
-                                                        {
-                                                            <a asp-page="../Licenses/Details" asp-route-id="@item.License_LicenseID">
-                                                                @Html.DisplayFor(modelItem => item1.LicenseName)
-                                                            </a>
-                                                        }
-                                                    }
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Status)
-                                                </td>
-                                                <td width="19%">
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteLiModal" onclick="Delete(@item.JoinLiAsID)">Delete</button>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.License)
+                                            {
+                                                if (item.License_LicenseID == item1.LicenseID)
+                                                {
+                                                    <a asp-page="../Licenses/Details" asp-route-id="@item.License_LicenseID">
+                                                        @Html.DisplayFor(modelItem => item1.LicenseName)
+                                                    </a>
+                                                }
+                                            }
+                                        </td>
+                                        <td width="19%">
+                                            @if (item.Status.Equals("Join"))
+                                            {
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinLiAsID)">Delete</button>
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                        </td>
+                                        
 
-                                                </td>
-
-                                            </tr>
+                                    </tr>
                                         }
                                     }
                                 </tbody>
@@ -568,18 +594,15 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            AssetName
+                                            Status
                                         </th>
                                         <th>
-                                            User
-                                        </th>
-
-                                        <th>
-                                            UpdateDate
+                                            Asset
                                         </th>
                                         <th>
-                                            Details
+                                            Network
                                         </th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -587,26 +610,34 @@
                                     {
                                         if (Model.Asset.AssetID == item.Asset_AssetID)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(model => model.Asset.AssetName)
-                                                </td>
-                                                <td>
-                                                    @foreach (var item1 in Model.Network)
-                                                    {
-                                                        if (item.Network_NetworkID == item1.NetworkID)
-                                                        {
-                                                            @Html.DisplayFor(modelItem => item1.NetworkName)
-                                                        }
-                                                    }
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Status)
-                                                </td>
-                                                <td width="19%">
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinNetAsID)">Delete</button>
-                                                </td>
-                                            </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Network)
+                                            {
+                                                if (item.Network_NetworkID == item1.NetworkID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.NetworkName)
+                                                }
+                                            }
+                                        </td>
+                                        <td width="19%">
+                                            @if (item.Status.Equals("Join"))
+                                            {
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinNetAsID)">Delete</button>
+                                            }
+                                            else
+                                            {
+                                                <text>-</text>
+                                            }
+                                        </td>
+                                       
+                                    </tr>
                                         }
                                     }
                                 </tbody>
@@ -640,26 +671,26 @@
                                     {
                                         if (Model.Asset.AssetID == item.Asset_AssetID)
                                         {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.Asset.AssetName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(model => item.Employee_EmpID)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.UpdateDate)
-                                        </td>
-                                        
-                                        <td width="100px">
-                                            <a asp-page="../UpdateAsset/Details" asp-route-id="@item.UpdateAssetID">
-                                                <button type="button" class="btn btn-outline-primary">
-                                                    Deatail
-                                                </button>
-                                            </a>
-                                        </td>
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.Asset.AssetName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => item.Employee_EmpID)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                                                </td>
 
-                                    </tr>
+                                                <td width="100px">
+                                                    <a asp-page="../UpdateAsset/Details" asp-route-id="@item.UpdateAssetID">
+                                                        <button type="button" class="btn btn-outline-primary">
+                                                            Detail
+                                                        </button>
+                                                    </a>
+                                                </td>
+
+                                            </tr>
                                         }
                                     }
                                 </tbody>
@@ -767,5 +798,5 @@
         document.getElementById("DeletidLi").value = id
         document.getElementById("DeletidNet").value = id
     }
-  
+
 </script>

@@ -56,7 +56,6 @@ namespace tbkk_AC.Pages.Departments
                                             new Department
                                             {
                                                 DepartmentName = values[0],
-                                                Image = values[1],
                                                 Status = "Using"
                                             }
                                             );

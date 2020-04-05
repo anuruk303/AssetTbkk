@@ -8,13 +8,17 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Company</li>
+           
+        </ol>
         <!--
             s Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <div class="dataTable_length">
-                    <i class="fas fa-table">Company</i>
+                    <i class="fas fa-table"> Company</i>
                     <div style="float: right">
                         <a asp-page="Create">
                             <button type="button" class="btn btn-outline-info">
@@ -69,7 +73,7 @@
                                             <a asp-page="./Details" asp-route-id="@item.CompanyID">
 
                                                 <button type="button" class="btn btn-outline-primary">
-                                                    Deatail
+                                                    Detail
                                                 </button>
                                             </a>
                                             <a asp-page="./Edit" asp-route-id="@item.CompanyID">

@@ -7,7 +7,11 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Brand</li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
         <div class="card ">
             <div class="card-header" style="font-weight:bold;color:darkblue;">
                 Edit
@@ -25,7 +29,7 @@
                                     <span asp-validation-for="Brand.BrandName" class="text-danger"></span>
                                 </div>
                             </div>
-                        
+
                             <div class="form-group row">
                                 <label asp-for="Brand.Image" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-8">

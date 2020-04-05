@@ -7,7 +7,11 @@
     <div id="content-wrapper">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
-            
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Employee</li>
+                <li class="breadcrumb-item active">Create</li>
+            </ol>
 
             <div class="card " style="margin-top:1%">
                 <div class="card-header" style="font-weight:bold;color:darkblue;">
@@ -209,16 +213,21 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Employee.Status" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="Employee.Status" class="form-control form-control-sm" value="Using" readonly />
+                                    <input asp-for="Employee.Status" class="form-control form-control-sm" value="Working" readonly />
                                     <span asp-validation-for="Employee.Status" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="file" name="photo" id="pho1" asp-for="Employee.Image" accept="image/jpeg,image/jpg" />
-                                <input asp-for="Employee.Image" class="form-control" hidden id="pho2" />
-                                <span asp-validation-for="Employee.Image" class="text-danger"></span>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Upload Image</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="photo" id="pho1" asp-for="Employee.Image" accept="image/jpeg,image/jpg" onchange="run1()">
+                                    <label class="custom-file-label" for="inputGroupFile01" id="pho2">Choose file</label>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -237,6 +246,8 @@
 <script>
     function run() {
         document.getElementById("pho2").value = document.getElementById("pho1").value
+    }function run1() {
+        document.getElementById("pho2").innerHTML = document.getElementById("pho1").value
     }
 
 </script>

@@ -7,7 +7,11 @@
 
 <div id="content-wrapper">
     <div class="container-fluid">
-
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">License</li>
+            
+        </ol>
 
         <div class="card mb-3">
             <div class="card-header">
@@ -18,7 +22,7 @@
                             <button type="button" class="btn btn-outline-info">Create</button>
                         </a>
 
-                        <button  class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                         <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Search data</button>
                     </div>
                 </div>
@@ -101,7 +105,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-3">
                                 <div class="form-group row">
@@ -210,7 +214,7 @@
                                         <td width="19%">
                                             <a asp-page="./Details" asp-route-id="@item.LicenseID">
                                                 <button type="button" class="btn btn-outline-primary">
-                                                    Deatail
+                                                    Detail
                                                 </button>
                                             </a>
                                             <a asp-page="./Edit" asp-route-id="@item.LicenseID">

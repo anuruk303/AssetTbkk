@@ -9,6 +9,10 @@
     <div id="content-wrapper">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Asset</li>
+            </ol>
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
@@ -258,7 +262,7 @@
                                             <td width="20%">
                                                 <a asp-page="./Details" asp-route-id="@item.AssetID">
                                                     <button type="button" class="btn btn-outline-primary">
-                                                        Deatail
+                                                        Detail
                                                     </button>
                                                 </a>
                                                 <a asp-page="./Edit" asp-route-id="@item.AssetID">

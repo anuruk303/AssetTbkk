@@ -8,7 +8,11 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Suppliers</li>
+            <li class="breadcrumb-item active">Create</li>
+        </ol>
         <div class="card ">
             <div class="card-header" style="font-weight:bold;color:darkblue;">
                 Create
@@ -54,12 +58,27 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Image</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload Image</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="photo" id="pho1" asp-for="Supplier.Image" accept="image/jpeg,image/jpg" onchange="run1()">
+                                            <label class="custom-file-label" for="inputGroupFile01" id="pho2">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label asp-for="Supplier.Status" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-8">
                                     <input asp-for="Supplier.Status" class="form-control" value="Using" readonly />
                                     <span asp-validation-for="Supplier.Status" class="text-danger"></span>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label asp-for="Supplier.Note" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-8">
@@ -67,11 +86,7 @@
                                     <span asp-validation-for="Supplier.Note" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="file" name="photo" id="pho1" asp-for="Supplier.Image" accept="image/jpeg,image/jpg" />
-                                <input asp-for="Supplier.Image" class="form-control" hidden id="pho2" />
-                                <span asp-validation-for="Supplier.Image" class="text-danger"></span>
-                            </div>
+
                             <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
                                 <a asp-page="./Index">
                                     <button type="button" class="btn btn-outline-secondary">
@@ -94,5 +109,7 @@
 <script>
     function run() {
         document.getElementById("pho2").value = document.getElementById("pho1").value
+    } function run1() {
+        document.getElementById("pho2").innerHTML = document.getElementById("pho1").value
     }
 </script>

@@ -56,7 +56,6 @@ namespace tbkk_AC.Pages.Companys
                                             new Company
                                             {
                                                 CompanyName = values[0],
-                                                Image = values[1],
                                                 Status = "Using"
                                             }
                                             );
