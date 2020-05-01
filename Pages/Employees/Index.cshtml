@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-<form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
             <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -135,7 +135,7 @@
                         <div class="modal-body">
                             <p>Are you sure?</p>
                         </div>
-                        <input asp-for="Deletid" />
+                        <input asp-for="Deletid" type="hidden"/>
                         <div class="modal-footer">
                             <input style="margin-left:10px" type="submit" asp-page-handler="Delete" class="btn btn-outline-danger" value="Delete" />
                             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>

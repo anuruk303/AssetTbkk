@@ -328,7 +328,7 @@
                                         <td width="19%">
                                             @if (item.Status.Equals("Join"))
                                             {
-                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteNetModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteEmpModal" onclick="Delete(@item.JoinAsEmpID)">Delete</button>
                                             }
                                             else
                                             {
@@ -359,7 +359,7 @@
                     <div class="modal-body">
                         <p>Are you sure?</p>
                     </div>
-                    <input asp-for="DeletidEmp" />
+                    <input asp-for="DeletidEmp" type="hidden"/>
                     <div class="modal-footer">
                         <input style="margin-left:10px" type="submit" asp-page-handler="DeleteEmp" class="btn btn-outline-danger" value="Delete" />
                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
